@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/HsVerwWCFService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/HsVerwWCFService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfVerbrauch">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Verbrauch" nillable="true" type="tns:Verbrauch" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVerbrauch" nillable="true" type="tns:ArrayOfVerbrauch" />
+  <xs:complexType name="Verbrauch">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:IService1.Basis">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Verbrauchstyp" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Verbrauch" nillable="true" type="tns:Verbrauch" />
+  <xs:complexType name="IService1.Basis">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Datum" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Einheit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EinheitID" type="xs:long" />
+      <xs:element minOccurs="0" name="Haushaltskategorie" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HaushaltskategorieID" type="xs:long" />
+      <xs:element minOccurs="0" name="Haushaltsunterkategorie" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HaushaltsunterkategorieID" type="xs:long" />
+      <xs:element minOccurs="0" name="ID" type="xs:long" />
+      <xs:element minOccurs="0" name="Wert" type="xs:long" />
+      <xs:element minOccurs="0" name="Zahlungsrythmus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ZahlungsrythmusID" type="xs:long" />
+      <xs:element minOccurs="0" name="Zahlungsrythmusfaktor" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IService1.Basis" nillable="true" type="tns:IService1.Basis" />
+  <xs:complexType name="ArrayOfAusgabe">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Ausgabe" nillable="true" type="tns:Ausgabe" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAusgabe" nillable="true" type="tns:ArrayOfAusgabe" />
+  <xs:complexType name="Ausgabe">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:IService1.Basis">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Ausgabentyp" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Ausgabe" nillable="true" type="tns:Ausgabe" />
+  <xs:complexType name="ArrayOfIService1.Verbrauchstyp">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IService1.Verbrauchstyp" nillable="true" type="tns:IService1.Verbrauchstyp" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIService1.Verbrauchstyp" nillable="true" type="tns:ArrayOfIService1.Verbrauchstyp" />
+  <xs:complexType name="IService1.Verbrauchstyp">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Haushaltskategorie" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HaushaltskategorieID" type="xs:long" />
+      <xs:element minOccurs="0" name="Haushaltsunterkategorie" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IService1.Verbrauchstyp" nillable="true" type="tns:IService1.Verbrauchstyp" />
+  <xs:complexType name="ArrayOfZahlungsrythmus">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Zahlungsrythmus" nillable="true" type="tns:Zahlungsrythmus" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfZahlungsrythmus" nillable="true" type="tns:ArrayOfZahlungsrythmus" />
+  <xs:complexType name="Zahlungsrythmus">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Beginn" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ID" type="xs:long" />
+      <xs:element minOccurs="0" name="Rythmus" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rythmusfaktor" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Zahlungsrythmus" nillable="true" type="tns:Zahlungsrythmus" />
+  <xs:complexType name="ArrayOfVarVerbrauchKat">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="VarVerbrauchKat" nillable="true" type="tns:VarVerbrauchKat" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfVarVerbrauchKat" nillable="true" type="tns:ArrayOfVarVerbrauchKat" />
+  <xs:complexType name="VarVerbrauchKat">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:long" />
+      <xs:element minOccurs="0" name="VarVerbrauchKat" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VarVerbrauchKat" nillable="true" type="tns:VarVerbrauchKat" />
+  <xs:complexType name="ArrayOfHaushaltskategorie">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Haushaltskategorie" nillable="true" type="tns:Haushaltskategorie" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHaushaltskategorie" nillable="true" type="tns:ArrayOfHaushaltskategorie" />
+  <xs:complexType name="Haushaltskategorie">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Haushaltskategorie" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Haushaltskategorie" nillable="true" type="tns:Haushaltskategorie" />
+  <xs:complexType name="Auswertung">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AusgabenproJahr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AusgabenproMonat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AuswertungproJahr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AuswertungproMonat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EinnahmenproJahr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EinnahmenproMonat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerbrauchproJahr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerbrauchproMonat" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Auswertung" nillable="true" type="tns:Auswertung" />
+</xs:schema>

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://wcfservices.ralfabels.de/HsVerwWCFService/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HsVerwWCFService" />
+  <xs:element name="GetVerbrauch">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVerbrauchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="GetVerbrauchResult" nillable="true" type="q1:ArrayOfVerbrauch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAusgabe">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAusgabeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="GetAusgabeResult" nillable="true" type="q2:ArrayOfAusgabe" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVerbrauchbyTyp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="verbrauchstyp" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVerbrauchbyTypResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="GetVerbrauchbyTypResult" nillable="true" type="q3:ArrayOfVerbrauch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVerbrauchsTyp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Haushatskategorie_ID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVerbrauchsTypResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="GetVerbrauchsTypResult" nillable="true" type="q4:ArrayOfIService1.Verbrauchstyp" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVerbrauchbyUnterTyp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="verbrauchsuntertyp" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVerbrauchbyUnterTypResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="GetVerbrauchbyUnterTypResult" nillable="true" type="q5:ArrayOfVerbrauch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAusgabebyTyp">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ausgabentyp" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAusgabebyTypResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="GetAusgabebyTypResult" nillable="true" type="q6:ArrayOfAusgabe" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVerbrauchbyID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVerbrauchbyIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="GetVerbrauchbyIDResult" nillable="true" type="q7:Verbrauch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAusgabebyID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAusgabebyIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="GetAusgabebyIDResult" nillable="true" type="q8:Ausgabe" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVerbrauchbyDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="datum" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVerbrauchbyDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="GetVerbrauchbyDateResult" nillable="true" type="q9:Verbrauch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAusgabebyDate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="datum" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAusgabebyDateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="GetAusgabebyDateResult" nillable="true" type="q10:Ausgabe" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetZahlungsrythmen">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetZahlungsrythmenResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="GetZahlungsrythmenResult" nillable="true" type="q11:ArrayOfZahlungsrythmus" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVarVerbrauchKat">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVarVerbrauchKatResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="GetVarVerbrauchKatResult" nillable="true" type="q12:ArrayOfVarVerbrauchKat" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetVerbrauch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="vlo_verbrauch" nillable="true" type="q13:Verbrauch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetVerbrauchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetVerbrauchResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAusgabe">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="vlo_ausgabe" nillable="true" type="q14:Ausgabe" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAusgabeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetAusgabeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetVerbrauchNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="vlo_verbrauch" nillable="true" type="q15:Verbrauch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetVerbrauchNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetVerbrauchNewResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAusgabeNew">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="vlo_ausgabe" nillable="true" type="q16:Ausgabe" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SetAusgabeNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SetAusgabeNewResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteVerbrauch">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="vlo_verbrauch" nillable="true" type="q17:Verbrauch" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteVerbrauchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteVerbrauchResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAusgabe">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="vlo_ausgabe" nillable="true" type="q18:Ausgabe" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAusgabeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteAusgabeResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHaushaltskategorien">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetHaushaltskategorienResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="GetHaushaltskategorienResult" nillable="true" type="q19:ArrayOfHaushaltskategorie" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuswertung">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAuswertungResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="GetAuswertungResult" nillable="true" type="q20:Auswertung" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

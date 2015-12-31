@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://wcfservices.ralfabels.de/HsVerwWCFService/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://wcfservices.ralfabels.de/HsVerwWCFService/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://wcfservices.ralfabels.de/HsVerwWCFService/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HsVerwWCFService" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService1_GetVerbrauch_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVerbrauch" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVerbrauch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVerbrauchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAusgabe_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAusgabe" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAusgabe_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAusgabeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVerbrauchbyTyp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVerbrauchbyTyp" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVerbrauchbyTyp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVerbrauchbyTypResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVerbrauchsTyp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVerbrauchsTyp" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVerbrauchsTyp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVerbrauchsTypResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVerbrauchbyUnterTyp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVerbrauchbyUnterTyp" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVerbrauchbyUnterTyp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVerbrauchbyUnterTypResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAusgabebyTyp_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAusgabebyTyp" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAusgabebyTyp_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAusgabebyTypResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVerbrauchbyID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVerbrauchbyID" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVerbrauchbyID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVerbrauchbyIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAusgabebyID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAusgabebyID" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAusgabebyID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAusgabebyIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVerbrauchbyDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVerbrauchbyDate" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVerbrauchbyDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVerbrauchbyDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAusgabebyDate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAusgabebyDate" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAusgabebyDate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAusgabebyDateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetZahlungsrythmen_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetZahlungsrythmen" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetZahlungsrythmen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetZahlungsrythmenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVarVerbrauchKat_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVarVerbrauchKat" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetVarVerbrauchKat_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVarVerbrauchKatResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SetVerbrauch_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetVerbrauch" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SetVerbrauch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetVerbrauchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SetAusgabe_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAusgabe" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SetAusgabe_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAusgabeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SetVerbrauchNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetVerbrauchNew" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SetVerbrauchNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetVerbrauchNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SetAusgabeNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetAusgabeNew" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SetAusgabeNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetAusgabeNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteVerbrauch_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVerbrauch" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteVerbrauch_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteVerbrauchResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteAusgabe_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAusgabe" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteAusgabe_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAusgabeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetHaushaltskategorien_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHaushaltskategorien" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetHaushaltskategorien_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHaushaltskategorienResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAuswertung_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuswertung" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAuswertung_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAuswertungResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService1">
+    <wsdl:operation name="GetVerbrauch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVerbrauch" message="tns:IService1_GetVerbrauch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetVerbrauchResponse" message="tns:IService1_GetVerbrauch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAusgabe">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAusgabe" message="tns:IService1_GetAusgabe_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAusgabeResponse" message="tns:IService1_GetAusgabe_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVerbrauchbyTyp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVerbrauchbyTyp" message="tns:IService1_GetVerbrauchbyTyp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetVerbrauchbyTypResponse" message="tns:IService1_GetVerbrauchbyTyp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVerbrauchsTyp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVerbrauchsTyp" message="tns:IService1_GetVerbrauchsTyp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetVerbrauchsTypResponse" message="tns:IService1_GetVerbrauchsTyp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVerbrauchbyUnterTyp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVerbrauchbyUnterTyp" message="tns:IService1_GetVerbrauchbyUnterTyp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetVerbrauchbyUnterTypResponse" message="tns:IService1_GetVerbrauchbyUnterTyp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAusgabebyTyp">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAusgabebyTyp" message="tns:IService1_GetAusgabebyTyp_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAusgabebyTypResponse" message="tns:IService1_GetAusgabebyTyp_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVerbrauchbyID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVerbrauchbyID" message="tns:IService1_GetVerbrauchbyID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetVerbrauchbyIDResponse" message="tns:IService1_GetVerbrauchbyID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAusgabebyID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAusgabebyID" message="tns:IService1_GetAusgabebyID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAusgabebyIDResponse" message="tns:IService1_GetAusgabebyID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVerbrauchbyDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVerbrauchbyDate" message="tns:IService1_GetVerbrauchbyDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetVerbrauchbyDateResponse" message="tns:IService1_GetVerbrauchbyDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAusgabebyDate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAusgabebyDate" message="tns:IService1_GetAusgabebyDate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAusgabebyDateResponse" message="tns:IService1_GetAusgabebyDate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetZahlungsrythmen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetZahlungsrythmen" message="tns:IService1_GetZahlungsrythmen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetZahlungsrythmenResponse" message="tns:IService1_GetZahlungsrythmen_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVarVerbrauchKat">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVarVerbrauchKat" message="tns:IService1_GetVarVerbrauchKat_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetVarVerbrauchKatResponse" message="tns:IService1_GetVarVerbrauchKat_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetVerbrauch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetVerbrauch" message="tns:IService1_SetVerbrauch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetVerbrauchResponse" message="tns:IService1_SetVerbrauch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAusgabe">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetAusgabe" message="tns:IService1_SetAusgabe_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetAusgabeResponse" message="tns:IService1_SetAusgabe_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetVerbrauchNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetVerbrauchNew" message="tns:IService1_SetVerbrauchNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetVerbrauchNewResponse" message="tns:IService1_SetVerbrauchNew_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetAusgabeNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetAusgabeNew" message="tns:IService1_SetAusgabeNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetAusgabeNewResponse" message="tns:IService1_SetAusgabeNew_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVerbrauch">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteVerbrauch" message="tns:IService1_DeleteVerbrauch_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteVerbrauchResponse" message="tns:IService1_DeleteVerbrauch_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAusgabe">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteAusgabe" message="tns:IService1_DeleteAusgabe_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteAusgabeResponse" message="tns:IService1_DeleteAusgabe_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHaushaltskategorien">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetHaushaltskategorien" message="tns:IService1_GetHaushaltskategorien_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetHaushaltskategorienResponse" message="tns:IService1_GetHaushaltskategorien_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAuswertung">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAuswertung" message="tns:IService1_GetAuswertung_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAuswertungResponse" message="tns:IService1_GetAuswertung_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetVerbrauch">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetVerbrauch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAusgabe">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAusgabe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVerbrauchbyTyp">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetVerbrauchbyTyp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVerbrauchsTyp">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetVerbrauchsTyp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVerbrauchbyUnterTyp">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetVerbrauchbyUnterTyp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAusgabebyTyp">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAusgabebyTyp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVerbrauchbyID">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetVerbrauchbyID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAusgabebyID">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAusgabebyID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVerbrauchbyDate">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetVerbrauchbyDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAusgabebyDate">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAusgabebyDate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetZahlungsrythmen">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetZahlungsrythmen" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVarVerbrauchKat">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetVarVerbrauchKat" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVerbrauch">
+      <soap:operation soapAction="http://tempuri.org/IService1/SetVerbrauch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAusgabe">
+      <soap:operation soapAction="http://tempuri.org/IService1/SetAusgabe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVerbrauchNew">
+      <soap:operation soapAction="http://tempuri.org/IService1/SetVerbrauchNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetAusgabeNew">
+      <soap:operation soapAction="http://tempuri.org/IService1/SetAusgabeNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVerbrauch">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteVerbrauch" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAusgabe">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteAusgabe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHaushaltskategorien">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetHaushaltskategorien" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAuswertung">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAuswertung" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service1">
+    <wsdl:port name="BasicHttpBinding_IService1" binding="tns:BasicHttpBinding_IService1">
+      <soap:address location="http://wcfservices.ralfabels.de/HsVerwWCFService/Service1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
