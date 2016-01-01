@@ -516,9 +516,13 @@ Namespace HsVerwSvc
         Inherits Object
         Implements System.ComponentModel.INotifyPropertyChanged
         
-        Private AusgabenproJahrField As String
+        Private AusgabenFixproJahrField As String
         
-        Private AusgabenproMonatField As String
+        Private AusgabenFixproMonatField As String
+        
+        Private AusgabenVarproJahrField As String
+        
+        Private AusgabenVarproMonatField As String
         
         Private AuswertungproJahrField As String
         
@@ -528,32 +532,62 @@ Namespace HsVerwSvc
         
         Private EinnahmenproMonatField As String
         
-        Private VerbrauchproJahrField As String
+        Private VerbrauchFixproJahrField As String
         
-        Private VerbrauchproMonatField As String
+        Private VerbrauchFixproMonatField As String
+        
+        Private VerbrauchVarproJahrField As String
+        
+        Private VerbrauchVarproMonatField As String
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property AusgabenproJahr() As String
+        Public Property AusgabenFixproJahr() As String
             Get
-                Return Me.AusgabenproJahrField
+                Return Me.AusgabenFixproJahrField
             End Get
             Set
-                If (Object.ReferenceEquals(Me.AusgabenproJahrField, value) <> true) Then
-                    Me.AusgabenproJahrField = value
-                    Me.RaisePropertyChanged("AusgabenproJahr")
+                If (Object.ReferenceEquals(Me.AusgabenFixproJahrField, value) <> true) Then
+                    Me.AusgabenFixproJahrField = value
+                    Me.RaisePropertyChanged("AusgabenFixproJahr")
                 End If
             End Set
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property AusgabenproMonat() As String
+        Public Property AusgabenFixproMonat() As String
             Get
-                Return Me.AusgabenproMonatField
+                Return Me.AusgabenFixproMonatField
             End Get
             Set
-                If (Object.ReferenceEquals(Me.AusgabenproMonatField, value) <> true) Then
-                    Me.AusgabenproMonatField = value
-                    Me.RaisePropertyChanged("AusgabenproMonat")
+                If (Object.ReferenceEquals(Me.AusgabenFixproMonatField, value) <> true) Then
+                    Me.AusgabenFixproMonatField = value
+                    Me.RaisePropertyChanged("AusgabenFixproMonat")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property AusgabenVarproJahr() As String
+            Get
+                Return Me.AusgabenVarproJahrField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.AusgabenVarproJahrField, value) <> true) Then
+                    Me.AusgabenVarproJahrField = value
+                    Me.RaisePropertyChanged("AusgabenVarproJahr")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property AusgabenVarproMonat() As String
+            Get
+                Return Me.AusgabenVarproMonatField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.AusgabenVarproMonatField, value) <> true) Then
+                    Me.AusgabenVarproMonatField = value
+                    Me.RaisePropertyChanged("AusgabenVarproMonat")
                 End If
             End Set
         End Property
@@ -611,27 +645,53 @@ Namespace HsVerwSvc
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property VerbrauchproJahr() As String
+        Public Property VerbrauchFixproJahr() As String
             Get
-                Return Me.VerbrauchproJahrField
+                Return Me.VerbrauchFixproJahrField
             End Get
             Set
-                If (Object.ReferenceEquals(Me.VerbrauchproJahrField, value) <> true) Then
-                    Me.VerbrauchproJahrField = value
-                    Me.RaisePropertyChanged("VerbrauchproJahr")
+                If (Object.ReferenceEquals(Me.VerbrauchFixproJahrField, value) <> true) Then
+                    Me.VerbrauchFixproJahrField = value
+                    Me.RaisePropertyChanged("VerbrauchFixproJahr")
                 End If
             End Set
         End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
-        Public Property VerbrauchproMonat() As String
+        Public Property VerbrauchFixproMonat() As String
             Get
-                Return Me.VerbrauchproMonatField
+                Return Me.VerbrauchFixproMonatField
             End Get
             Set
-                If (Object.ReferenceEquals(Me.VerbrauchproMonatField, value) <> true) Then
-                    Me.VerbrauchproMonatField = value
-                    Me.RaisePropertyChanged("VerbrauchproMonat")
+                If (Object.ReferenceEquals(Me.VerbrauchFixproMonatField, value) <> true) Then
+                    Me.VerbrauchFixproMonatField = value
+                    Me.RaisePropertyChanged("VerbrauchFixproMonat")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property VerbrauchVarproJahr() As String
+            Get
+                Return Me.VerbrauchVarproJahrField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.VerbrauchVarproJahrField, value) <> true) Then
+                    Me.VerbrauchVarproJahrField = value
+                    Me.RaisePropertyChanged("VerbrauchVarproJahr")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property VerbrauchVarproMonat() As String
+            Get
+                Return Me.VerbrauchVarproMonatField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.VerbrauchVarproMonatField, value) <> true) Then
+                    Me.VerbrauchVarproMonatField = value
+                    Me.RaisePropertyChanged("VerbrauchVarproMonat")
                 End If
             End Set
         End Property

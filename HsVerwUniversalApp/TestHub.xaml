@@ -24,14 +24,20 @@
                     <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" VerticalAlignment="Center" Width="300" HorizontalAlignment="Left" Margin="10,0,0,0">
                         <TextBlock Text="Monat" MaxHeight="80" FontSize="20" FontWeight="Light" TextTrimming="WordEllipsis" HorizontalAlignment="Left" Margin="0" />
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="{Binding EinnahmenproMonat}" HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Width="100" Text="fix: " HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                <TextBlock Text="{Binding EinnahmenproMonat}" HorizontalAlignment="Right" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                            </StackPanel>
                         </StackPanel>
                         <TextBlock Text="Jahr" MaxHeight="80" FontSize="20" FontWeight="Light" TextTrimming="WordEllipsis" HorizontalAlignment="Left" Margin="0" />
                         <StackPanel Orientation="Vertical">
-                            <TextBlock Text="{Binding EinnahmenproJahr}" HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Width="100" Text="fix: " HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                <TextBlock Text="{Binding EinnahmenproJahr}" HorizontalAlignment="Right" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                            </StackPanel>
                         </StackPanel>
                         <Button Content="Fix" Name="btn_einnahmefix" Style="{StaticResource ButtonStyle}"/>
-                        <Button Content="Variabel" Name="btn_einnahmevariabel" Style="{StaticResource ButtonStyle}"/>
+                        <!--<Button Content="Variabel" Name="btn_einnahmevariabel" Style="{StaticResource ButtonStyle}"/>-->
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
@@ -41,14 +47,25 @@
                         <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" VerticalAlignment="Center" Width="300" HorizontalAlignment="Left" Margin="10,0,0,0">
                             <TextBlock Text="Monat" MaxHeight="80" FontSize="20" FontWeight="Light" TextTrimming="WordEllipsis" HorizontalAlignment="Left" Margin="0" />
                             <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding VerbrauchproMonat}" HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
-                                <TextBlock Text="variabel" HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Width="100" Text="fix: " HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                    <TextBlock Text="{Binding VerbrauchFixproMonat}" HorizontalAlignment="Right" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Width="100" Text="variabel: " HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                    <TextBlock Text="{Binding VerbrauchVarproMonat}" HorizontalAlignment="Right" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                </StackPanel>
                             </StackPanel>
-
                             <TextBlock Text="Jahr" MaxHeight="80" FontSize="20" FontWeight="Light" TextTrimming="WordEllipsis" HorizontalAlignment="Left" Margin="0" />
                             <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding VerbrauchproJahr}" HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
-                                <TextBlock Text="variabel" HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Width="100" Text="fix: " HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                    <TextBlock Text="{Binding VerbrauchFixproJahr}" HorizontalAlignment="Right" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Width="100" Text="variabel: " HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                    <TextBlock Text="{Binding VerbrauchVarproJahr}" HorizontalAlignment="Right" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                </StackPanel>
                             </StackPanel>
 
                             <Button Content="Fix" Name="btn_verbrauchfix" Style="{StaticResource ButtonStyle}"/>
@@ -64,14 +81,25 @@
                         <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" VerticalAlignment="Center" Width="300" HorizontalAlignment="Left" Margin="10,0,0,0">
                             <TextBlock Text="Monat" MaxHeight="80" FontSize="20" FontWeight="Light" TextTrimming="WordEllipsis" HorizontalAlignment="Left" Margin="0" />
                             <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding AusgabenproMonat}" HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
-                                <TextBlock Text="variabel" HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Width="100" Text="fix: " HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                    <TextBlock Text="{Binding AusgabenFixproMonat}" HorizontalAlignment="Right" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Width="100" Text="variabel: " HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                    <TextBlock Text="{Binding AusgabenVarproMonat}" HorizontalAlignment="Right" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                </StackPanel>
                             </StackPanel>
-
                             <TextBlock Text="Jahr" MaxHeight="80" FontSize="20" FontWeight="Light" TextTrimming="WordEllipsis" HorizontalAlignment="Left" Margin="0" />
                             <StackPanel Orientation="Vertical">
-                                <TextBlock Text="{Binding AusgabenproJahr}" HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
-                                <TextBlock Text="variabel" HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Width="100" Text="fix: " HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                    <TextBlock Text="{Binding AusgabenFixproJahr}" HorizontalAlignment="Right" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                </StackPanel>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Width="100" Text="variabel: " HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                    <TextBlock Text="{Binding AusgabenVarproJahr}" HorizontalAlignment="Right" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
+                                </StackPanel>
                             </StackPanel>
 
                             <Button Content="Fix" Name="btn_ausgabefix" Style="{StaticResource ButtonStyle}"/>

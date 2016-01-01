@@ -107,14 +107,18 @@
   <xs:element name="Haushaltskategorie" nillable="true" type="tns:Haushaltskategorie" />
   <xs:complexType name="Auswertung">
     <xs:sequence>
-      <xs:element minOccurs="0" name="AusgabenproJahr" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="AusgabenproMonat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AusgabenFixproJahr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AusgabenFixproMonat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AusgabenVarproJahr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AusgabenVarproMonat" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="AuswertungproJahr" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="AuswertungproMonat" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EinnahmenproJahr" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EinnahmenproMonat" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="VerbrauchproJahr" nillable="true" type="xs:string" />
-      <xs:element minOccurs="0" name="VerbrauchproMonat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerbrauchFixproJahr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerbrauchFixproMonat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerbrauchVarproJahr" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerbrauchVarproMonat" nillable="true" type="xs:string" />
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Auswertung" nillable="true" type="tns:Auswertung" />
