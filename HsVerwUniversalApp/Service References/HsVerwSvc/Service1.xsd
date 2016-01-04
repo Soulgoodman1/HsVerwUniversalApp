@@ -49,6 +49,22 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Ausgabe" nillable="true" type="tns:Ausgabe" />
+  <xs:complexType name="ArrayOfEinnahme">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Einnahme" nillable="true" type="tns:Einnahme" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEinnahme" nillable="true" type="tns:ArrayOfEinnahme" />
+  <xs:complexType name="Einnahme">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:IService1.Basis">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Einnahmentyp" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Einnahme" nillable="true" type="tns:Einnahme" />
   <xs:complexType name="ArrayOfIService1.Verbrauchstyp">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="IService1.Verbrauchstyp" nillable="true" type="tns:IService1.Verbrauchstyp" />

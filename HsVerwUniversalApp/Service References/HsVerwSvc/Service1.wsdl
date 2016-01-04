@@ -13,11 +13,17 @@
   <wsdl:message name="IService1_GetVerbrauch_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetVerbrauchResponse" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetAusgabe_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetAusgabe" />
+  <wsdl:message name="IService1_GetAusgaben_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAusgaben" />
   </wsdl:message>
-  <wsdl:message name="IService1_GetAusgabe_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetAusgabeResponse" />
+  <wsdl:message name="IService1_GetAusgaben_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAusgabenResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetEinnahmen_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEinnahmen" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetEinnahmen_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEinnahmenResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_GetVerbrauchbyTyp_InputMessage">
     <wsdl:part name="parameters" element="tns:GetVerbrauchbyTyp" />
@@ -91,6 +97,12 @@
   <wsdl:message name="IService1_SetAusgabe_OutputMessage">
     <wsdl:part name="parameters" element="tns:SetAusgabeResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_SetEinnahme_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetEinnahme" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SetEinnahme_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetEinnahmeResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_SetVerbrauchNew_InputMessage">
     <wsdl:part name="parameters" element="tns:SetVerbrauchNew" />
   </wsdl:message>
@@ -103,6 +115,12 @@
   <wsdl:message name="IService1_SetAusgabeNew_OutputMessage">
     <wsdl:part name="parameters" element="tns:SetAusgabeNewResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_SetEinnahmeNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetEinnahmeNew" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SetEinnahmeNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetEinnahmeNewResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_DeleteVerbrauch_InputMessage">
     <wsdl:part name="parameters" element="tns:DeleteVerbrauch" />
   </wsdl:message>
@@ -114,6 +132,12 @@
   </wsdl:message>
   <wsdl:message name="IService1_DeleteAusgabe_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteAusgabeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteEinnahme_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEinnahme" />
+  </wsdl:message>
+  <wsdl:message name="IService1_DeleteEinnahme_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteEinnahmeResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_GetHaushaltskategorien_InputMessage">
     <wsdl:part name="parameters" element="tns:GetHaushaltskategorien" />
@@ -132,9 +156,13 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVerbrauch" message="tns:IService1_GetVerbrauch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetVerbrauchResponse" message="tns:IService1_GetVerbrauch_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="GetAusgabe">
-      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAusgabe" message="tns:IService1_GetAusgabe_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAusgabeResponse" message="tns:IService1_GetAusgabe_OutputMessage" />
+    <wsdl:operation name="GetAusgaben">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAusgaben" message="tns:IService1_GetAusgaben_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAusgabenResponse" message="tns:IService1_GetAusgaben_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEinnahmen">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetEinnahmen" message="tns:IService1_GetEinnahmen_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetEinnahmenResponse" message="tns:IService1_GetEinnahmen_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetVerbrauchbyTyp">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVerbrauchbyTyp" message="tns:IService1_GetVerbrauchbyTyp_InputMessage" />
@@ -184,6 +212,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetAusgabe" message="tns:IService1_SetAusgabe_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetAusgabeResponse" message="tns:IService1_SetAusgabe_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="SetEinnahme">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetEinnahme" message="tns:IService1_SetEinnahme_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetEinnahmeResponse" message="tns:IService1_SetEinnahme_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="SetVerbrauchNew">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetVerbrauchNew" message="tns:IService1_SetVerbrauchNew_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetVerbrauchNewResponse" message="tns:IService1_SetVerbrauchNew_OutputMessage" />
@@ -192,6 +224,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetAusgabeNew" message="tns:IService1_SetAusgabeNew_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetAusgabeNewResponse" message="tns:IService1_SetAusgabeNew_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="SetEinnahmeNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetEinnahmeNew" message="tns:IService1_SetEinnahmeNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetEinnahmeNewResponse" message="tns:IService1_SetEinnahmeNew_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="DeleteVerbrauch">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteVerbrauch" message="tns:IService1_DeleteVerbrauch_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteVerbrauchResponse" message="tns:IService1_DeleteVerbrauch_OutputMessage" />
@@ -199,6 +235,10 @@
     <wsdl:operation name="DeleteAusgabe">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteAusgabe" message="tns:IService1_DeleteAusgabe_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteAusgabeResponse" message="tns:IService1_DeleteAusgabe_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEinnahme">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteEinnahme" message="tns:IService1_DeleteEinnahme_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteEinnahmeResponse" message="tns:IService1_DeleteEinnahme_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetHaushaltskategorien">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetHaushaltskategorien" message="tns:IService1_GetHaushaltskategorien_InputMessage" />
@@ -220,8 +260,17 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="GetAusgabe">
-      <soap:operation soapAction="http://tempuri.org/IService1/GetAusgabe" style="document" />
+    <wsdl:operation name="GetAusgaben">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAusgaben" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEinnahmen">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetEinnahmen" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -337,6 +386,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SetEinnahme">
+      <soap:operation soapAction="http://tempuri.org/IService1/SetEinnahme" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SetVerbrauchNew">
       <soap:operation soapAction="http://tempuri.org/IService1/SetVerbrauchNew" style="document" />
       <wsdl:input>
@@ -355,6 +413,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SetEinnahmeNew">
+      <soap:operation soapAction="http://tempuri.org/IService1/SetEinnahmeNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="DeleteVerbrauch">
       <soap:operation soapAction="http://tempuri.org/IService1/DeleteVerbrauch" style="document" />
       <wsdl:input>
@@ -366,6 +433,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteAusgabe">
       <soap:operation soapAction="http://tempuri.org/IService1/DeleteAusgabe" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteEinnahme">
+      <soap:operation soapAction="http://tempuri.org/IService1/DeleteEinnahme" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

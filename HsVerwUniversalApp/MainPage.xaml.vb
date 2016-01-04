@@ -23,7 +23,7 @@ Public NotInheritable Class MainPage
     Private Sub btn_weiterzutest_Click(sender As Object, e As RoutedEventArgs) Handles btn_weiterzutest.Click
 
         ' Zur neuen Seite navigieren
-        Frame.Navigate(GetType(TestHub))
+        Frame.Navigate(GetType(MainHub))
 
     End Sub
 End Class

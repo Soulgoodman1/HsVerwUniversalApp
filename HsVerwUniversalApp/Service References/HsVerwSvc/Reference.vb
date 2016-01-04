@@ -44,6 +44,7 @@ Namespace HsVerwSvc
      System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0"),  _
      System.Runtime.Serialization.DataContractAttribute(Name:="IService1.Basis", [Namespace]:="http://schemas.datacontract.org/2004/07/HsVerwWCFService"),  _
      System.Runtime.Serialization.KnownTypeAttribute(GetType(HsVerwSvc.Ausgabe)),  _
+     System.Runtime.Serialization.KnownTypeAttribute(GetType(HsVerwSvc.Einnahme)),  _
      System.Runtime.Serialization.KnownTypeAttribute(GetType(HsVerwSvc.Verbrauch))>  _
     Partial Public Class IService1Basis
         Inherits Object
@@ -256,6 +257,28 @@ Namespace HsVerwSvc
                 If (Object.ReferenceEquals(Me.AusgabentypField, value) <> true) Then
                     Me.AusgabentypField = value
                     Me.RaisePropertyChanged("Ausgabentyp")
+                End If
+            End Set
+        End Property
+    End Class
+    
+    <System.Diagnostics.DebuggerStepThroughAttribute(),  _
+     System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0"),  _
+     System.Runtime.Serialization.DataContractAttribute(Name:="Einnahme", [Namespace]:="http://schemas.datacontract.org/2004/07/HsVerwWCFService")>  _
+    Partial Public Class Einnahme
+        Inherits HsVerwSvc.IService1Basis
+        
+        Private EinnahmentypField As String
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property Einnahmentyp() As String
+            Get
+                Return Me.EinnahmentypField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.EinnahmentypField, value) <> true) Then
+                    Me.EinnahmentypField = value
+                    Me.RaisePropertyChanged("Einnahmentyp")
                 End If
             End Set
         End Property
@@ -713,8 +736,11 @@ Namespace HsVerwSvc
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/GetVerbrauch", ReplyAction:="http://tempuri.org/IService1/GetVerbrauchResponse")>  _
         Function GetVerbrauchAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Verbrauch))
         
-        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/GetAusgabe", ReplyAction:="http://tempuri.org/IService1/GetAusgabeResponse")>  _
-        Function GetAusgabeAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Ausgabe))
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/GetAusgaben", ReplyAction:="http://tempuri.org/IService1/GetAusgabenResponse")>  _
+        Function GetAusgabenAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Ausgabe))
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/GetEinnahmen", ReplyAction:="http://tempuri.org/IService1/GetEinnahmenResponse")>  _
+        Function GetEinnahmenAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Einnahme))
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/GetVerbrauchbyTyp", ReplyAction:="http://tempuri.org/IService1/GetVerbrauchbyTypResponse")>  _
         Function GetVerbrauchbyTypAsync(ByVal verbrauchstyp As Long) As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Verbrauch))
@@ -752,17 +778,26 @@ Namespace HsVerwSvc
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/SetAusgabe", ReplyAction:="http://tempuri.org/IService1/SetAusgabeResponse")>  _
         Function SetAusgabeAsync(ByVal vlo_ausgabe As HsVerwSvc.Ausgabe) As System.Threading.Tasks.Task(Of String)
         
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/SetEinnahme", ReplyAction:="http://tempuri.org/IService1/SetEinnahmeResponse")>  _
+        Function SetEinnahmeAsync(ByVal vlo_einnahme As HsVerwSvc.Einnahme) As System.Threading.Tasks.Task(Of String)
+        
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/SetVerbrauchNew", ReplyAction:="http://tempuri.org/IService1/SetVerbrauchNewResponse")>  _
         Function SetVerbrauchNewAsync(ByVal vlo_verbrauch As HsVerwSvc.Verbrauch) As System.Threading.Tasks.Task(Of Boolean)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/SetAusgabeNew", ReplyAction:="http://tempuri.org/IService1/SetAusgabeNewResponse")>  _
         Function SetAusgabeNewAsync(ByVal vlo_ausgabe As HsVerwSvc.Ausgabe) As System.Threading.Tasks.Task(Of String)
         
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/SetEinnahmeNew", ReplyAction:="http://tempuri.org/IService1/SetEinnahmeNewResponse")>  _
+        Function SetEinnahmeNewAsync(ByVal vlo_ausgabe As HsVerwSvc.Einnahme) As System.Threading.Tasks.Task(Of String)
+        
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/DeleteVerbrauch", ReplyAction:="http://tempuri.org/IService1/DeleteVerbrauchResponse")>  _
         Function DeleteVerbrauchAsync(ByVal vlo_verbrauch As HsVerwSvc.Verbrauch) As System.Threading.Tasks.Task(Of Boolean)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/DeleteAusgabe", ReplyAction:="http://tempuri.org/IService1/DeleteAusgabeResponse")>  _
         Function DeleteAusgabeAsync(ByVal vlo_ausgabe As HsVerwSvc.Ausgabe) As System.Threading.Tasks.Task(Of Boolean)
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/DeleteEinnahme", ReplyAction:="http://tempuri.org/IService1/DeleteEinnahmeResponse")>  _
+        Function DeleteEinnahmeAsync(ByVal vlo_ausgabe As HsVerwSvc.Einnahme) As System.Threading.Tasks.Task(Of Boolean)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/GetHaushaltskategorien", ReplyAction:="http://tempuri.org/IService1/GetHaushaltskategorienResponse")>  _
         Function GetHaushaltskategorienAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Haushaltskategorie))
@@ -822,8 +857,12 @@ Namespace HsVerwSvc
             Return MyBase.Channel.GetVerbrauchAsync
         End Function
         
-        Public Function GetAusgabeAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Ausgabe)) Implements HsVerwSvc.IService1.GetAusgabeAsync
-            Return MyBase.Channel.GetAusgabeAsync
+        Public Function GetAusgabenAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Ausgabe)) Implements HsVerwSvc.IService1.GetAusgabenAsync
+            Return MyBase.Channel.GetAusgabenAsync
+        End Function
+        
+        Public Function GetEinnahmenAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Einnahme)) Implements HsVerwSvc.IService1.GetEinnahmenAsync
+            Return MyBase.Channel.GetEinnahmenAsync
         End Function
         
         Public Function GetVerbrauchbyTypAsync(ByVal verbrauchstyp As Long) As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Verbrauch)) Implements HsVerwSvc.IService1.GetVerbrauchbyTypAsync
@@ -874,6 +913,10 @@ Namespace HsVerwSvc
             Return MyBase.Channel.SetAusgabeAsync(vlo_ausgabe)
         End Function
         
+        Public Function SetEinnahmeAsync(ByVal vlo_einnahme As HsVerwSvc.Einnahme) As System.Threading.Tasks.Task(Of String) Implements HsVerwSvc.IService1.SetEinnahmeAsync
+            Return MyBase.Channel.SetEinnahmeAsync(vlo_einnahme)
+        End Function
+        
         Public Function SetVerbrauchNewAsync(ByVal vlo_verbrauch As HsVerwSvc.Verbrauch) As System.Threading.Tasks.Task(Of Boolean) Implements HsVerwSvc.IService1.SetVerbrauchNewAsync
             Return MyBase.Channel.SetVerbrauchNewAsync(vlo_verbrauch)
         End Function
@@ -882,12 +925,20 @@ Namespace HsVerwSvc
             Return MyBase.Channel.SetAusgabeNewAsync(vlo_ausgabe)
         End Function
         
+        Public Function SetEinnahmeNewAsync(ByVal vlo_ausgabe As HsVerwSvc.Einnahme) As System.Threading.Tasks.Task(Of String) Implements HsVerwSvc.IService1.SetEinnahmeNewAsync
+            Return MyBase.Channel.SetEinnahmeNewAsync(vlo_ausgabe)
+        End Function
+        
         Public Function DeleteVerbrauchAsync(ByVal vlo_verbrauch As HsVerwSvc.Verbrauch) As System.Threading.Tasks.Task(Of Boolean) Implements HsVerwSvc.IService1.DeleteVerbrauchAsync
             Return MyBase.Channel.DeleteVerbrauchAsync(vlo_verbrauch)
         End Function
         
         Public Function DeleteAusgabeAsync(ByVal vlo_ausgabe As HsVerwSvc.Ausgabe) As System.Threading.Tasks.Task(Of Boolean) Implements HsVerwSvc.IService1.DeleteAusgabeAsync
             Return MyBase.Channel.DeleteAusgabeAsync(vlo_ausgabe)
+        End Function
+        
+        Public Function DeleteEinnahmeAsync(ByVal vlo_ausgabe As HsVerwSvc.Einnahme) As System.Threading.Tasks.Task(Of Boolean) Implements HsVerwSvc.IService1.DeleteEinnahmeAsync
+            Return MyBase.Channel.DeleteEinnahmeAsync(vlo_ausgabe)
         End Function
         
         Public Function GetHaushaltskategorienAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Haushaltskategorie)) Implements HsVerwSvc.IService1.GetHaushaltskategorienAsync

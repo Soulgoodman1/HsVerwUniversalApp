@@ -1,5 +1,5 @@
 ﻿<Page
-    x:Class="HsVerwUniversalApp.TestHub"
+    x:Class="HsVerwUniversalApp.MainHub"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:HsVerwUniversalApp"
@@ -17,6 +17,12 @@
             <Setter Property="Margin" Value="0,5,0,0"/>
         </Style>
     </Page.Resources>
+    <Page.BottomAppBar>
+        <CommandBar IsOpen="True" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Visibility="Visible">
+            <AppBarButton Icon="Add" Label="Hinzufügen" Click="btn_hinzufuegen"/>
+            <AppBarButton Icon="List" Label="Anzeigen" Click="btn_auflisten"/>
+        </CommandBar>
+    </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RequestedTheme="Dark">
         <Hub Header="Hausverwaltung" Name="HausverwaltungHub">
             <HubSection Header="Einnahmen" Background="DarkGreen">

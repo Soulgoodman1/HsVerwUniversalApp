@@ -3,7 +3,7 @@
 ''' <summary>
 ''' Eine leere Seite, die eigenständig verwendet oder zu der innerhalb eines Rahmens navigiert werden kann.
 ''' </summary>
-Public NotInheritable Class TestHub
+Public NotInheritable Class MainHub
     Inherits Page
 
     Public Sub New()
@@ -16,14 +16,6 @@ Public NotInheritable Class TestHub
 
         Dim vlo_client As New HsVerwSvc.Service1Client
         Dim _hhauswertung As Task(Of HsVerwSvc.Auswertung) = vlo_client.GetAuswertungAsync
-
-        'Neuer Webservice mit
-        'Einnahmen Monat/Jahr jeweils fix/variabel
-        'Ausgaben Monat/Jahr jeweils fix/variabel
-        'Verbrauch Monat/Jahr jeweils fix/variabel
-        'eine Formel für alles
-        'Auswertung
-
 
         Me.DataContext = _hhauswertung.Result
 
@@ -60,4 +52,16 @@ Public NotInheritable Class TestHub
             AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView.BackRequested, AddressOf App_Backrequested
         End If
     End Sub
+
+    Private Sub btn_hinzufuegen()
+
+    End Sub
+
+    Private Sub btn_auflisten(sender As Object, e As RoutedEventArgs)
+
+        ' Zur neuen Seite navigieren
+        Frame.Navigate(GetType(ListIncome))
+
+    End Sub
+
 End Class
