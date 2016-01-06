@@ -149,6 +149,12 @@
     <Compile Include="App.xaml.vb">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ListExpense.xaml.vb">
+      <DependentUpon>ListExpense.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListConsumption.xaml.vb">
+      <DependentUpon>ListConsumption.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ListIncome.xaml.vb">
       <DependentUpon>ListIncome.xaml</DependentUpon>
     </Compile>
@@ -185,6 +191,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="ListExpense.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ListConsumption.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ListIncome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

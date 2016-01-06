@@ -19,13 +19,18 @@
     </Page.Resources>
     <Page.BottomAppBar>
         <CommandBar IsOpen="True" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Visibility="Visible">
-            <AppBarButton Icon="Add" Label="Hinzufügen" Click="btn_hinzufuegen"/>
-            <AppBarButton Icon="List" Label="Anzeigen" Click="btn_auflisten"/>
+            <AppBarButton Name="btn_hinzufuegenEinnahme"  Icon="Add" Label="Hinzufügen" Click="hinzufuegenEinnahme"/>
+            <AppBarButton Name="btn_auflistenEinnahme"  Icon="List" Label="Anzeigen" Click="auflistenEinnahme"/>
+            <AppBarButton Name="btn_hinzufuegenVerbrauch"  Icon="Add" Label="Hinzufügen" Click="hinzufuegenVerbrauch" Visibility="Collapsed"/>
+            <AppBarButton Name="btn_auflistenVerbrauch"  Icon="List" Label="Anzeigen" Click="auflistenVerbrauch" Visibility="Collapsed"/>
+            <AppBarButton Name="btn_hinzufuegenAusgabe"  Icon="Add" Label="Hinzufügen" Click="hinzufuegenAusgabe" Visibility="Collapsed"/>
+            <AppBarButton Name="btn_auflistenAusgabe"  Icon="List" Label="Anzeigen" Click="auflistenAusgabe" Visibility="Collapsed"/>
+            <AppBarButton Name="btn_auflistenAuswertung"  Icon="List" Label="Anzeigen" Click="auflistenAuswertung" Visibility="Collapsed"/>
         </CommandBar>
     </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RequestedTheme="Dark">
         <Hub Header="Hausverwaltung" Name="HausverwaltungHub">
-            <HubSection Header="Einnahmen" Background="DarkGreen">
+            <HubSection Header="Einnahmen" Background="DarkGreen" Width="{Binding SectionWidth}">
                 <DataTemplate>
                     <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" VerticalAlignment="Center" Width="300" HorizontalAlignment="Left" Margin="10,0,0,0">
                         <TextBlock Text="Monat" MaxHeight="80" FontSize="20" FontWeight="Light" TextTrimming="WordEllipsis" HorizontalAlignment="Left" Margin="0" />
@@ -55,7 +60,7 @@
                     </StackPanel>
                 </DataTemplate>
             </HubSection>
-            <HubSection Header="Verbrauch" Background="Goldenrod">
+            <HubSection Header="Verbrauch" Background="Goldenrod" Width="{Binding SectionWidth}">
                 <DataTemplate>
                     <Grid>
                         <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" VerticalAlignment="Center" Width="300" HorizontalAlignment="Left" Margin="10,0,0,0">
@@ -89,7 +94,7 @@
                     </Grid>
                 </DataTemplate>
             </HubSection>
-            <HubSection Header="Ausgaben" Background="Coral">
+            <HubSection Header="Ausgaben" Background="Coral" Width="{Binding SectionWidth}">
                 <DataTemplate>
                     <Grid>
                         <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" VerticalAlignment="Center" Width="300" HorizontalAlignment="Left" Margin="10,0,0,0">
@@ -123,7 +128,7 @@
                     </Grid>
                 </DataTemplate>
             </HubSection>
-            <HubSection Header="Auswertung" Background="CornflowerBlue">
+            <HubSection Header="Auswertung" Background="CornflowerBlue" Width="{Binding SectionWidth}">
                 <DataTemplate>
                     <Grid>
                         <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" VerticalAlignment="Center" Width="300" HorizontalAlignment="Left" Margin="10,0,0,0">
