@@ -19,8 +19,8 @@
     </Page.Resources>
     <Page.BottomAppBar>
         <CommandBar IsOpen="True" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Visibility="Visible">
-            <AppBarButton Name="btn_hinzufuegenEinnahme"  Icon="Add" Label="Hinzufügen" Click="hinzufuegenEinnahme"/>
-            <AppBarButton Name="btn_auflistenEinnahme"  Icon="List" Label="Anzeigen" Click="auflistenEinnahme"/>
+            <AppBarButton Name="btn_hinzufuegenEinnahme"  Icon="Add" Label="Hinzufügen" Click="hinzufuegenEinnahme" Visibility="Visible"/>
+            <AppBarButton Name="btn_auflistenEinnahme"  Icon="List" Label="Anzeigen" Click="auflistenEinnahme" Visibility="Visible"/>
             <AppBarButton Name="btn_hinzufuegenVerbrauch"  Icon="Add" Label="Hinzufügen" Click="hinzufuegenVerbrauch" Visibility="Collapsed"/>
             <AppBarButton Name="btn_auflistenVerbrauch"  Icon="List" Label="Anzeigen" Click="auflistenVerbrauch" Visibility="Collapsed"/>
             <AppBarButton Name="btn_hinzufuegenAusgabe"  Icon="Add" Label="Hinzufügen" Click="hinzufuegenAusgabe" Visibility="Collapsed"/>
