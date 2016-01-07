@@ -30,6 +30,7 @@
     </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RequestedTheme="Dark">
         <Hub Header="Hausverwaltung" Name="HausverwaltungHub">
+            <!--Hubsection Einnahmen-->
             <HubSection Header="Einnahmen" Background="DarkGreen" Width="{Binding SectionWidth}">
                 <DataTemplate>
                     <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" VerticalAlignment="Center" Width="300" HorizontalAlignment="Left" Margin="10,0,0,0">
@@ -55,10 +56,9 @@
                                 <TextBlock Text=" " HorizontalAlignment="Right" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
                             </StackPanel>
                         </StackPanel>
-                        <Button Content="Fix" Name="btn_einnahmefix" Style="{StaticResource ButtonStyle}"/>
-                        <!--<Button Content="Variabel" Name="btn_einnahmevariabel" Style="{StaticResource ButtonStyle}"/>-->
                     </StackPanel>
                 </DataTemplate>
+                <!--Hubsection Verbrauch-->
             </HubSection>
             <HubSection Header="Verbrauch" Background="Goldenrod" Width="{Binding SectionWidth}">
                 <DataTemplate>
@@ -86,14 +86,11 @@
                                     <TextBlock Text="{Binding VerbrauchVarproJahr}" HorizontalAlignment="Right" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </StackPanel>
-
-                            <Button Content="Fix" Name="btn_verbrauchfix" Style="{StaticResource ButtonStyle}"/>
-                            <Button Content="Variabel" Name="btn_verbrauchvariabel" Style="{StaticResource ButtonStyle}"/>
-
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
             </HubSection>
+            <!--Hubsection Ausgaben-->
             <HubSection Header="Ausgaben" Background="Coral" Width="{Binding SectionWidth}">
                 <DataTemplate>
                     <Grid>
@@ -120,14 +117,11 @@
                                     <TextBlock Text="{Binding AusgabenVarproJahr}" HorizontalAlignment="Right" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </StackPanel>
-
-                            <Button Content="Fix" Name="btn_ausgabefix" Style="{StaticResource ButtonStyle}"/>
-                            <Button Content="Variabel" Name="btn_ausgabevariabel" Style="{StaticResource ButtonStyle}"/>
-
                         </StackPanel>
                     </Grid>
                 </DataTemplate>
             </HubSection>
+            <!--Hubsection Auswertung-->
             <HubSection Header="Auswertung" Background="CornflowerBlue" Width="{Binding SectionWidth}">
                 <DataTemplate>
                     <Grid>
@@ -155,7 +149,6 @@
                                     <TextBlock Text=" " HorizontalAlignment="Right" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="10,0,0,0"/>
                                 </StackPanel>
                             </StackPanel>
-                            <Button Content="Detailauswertungen" Name="btn_gesamtauswertung" Margin="0,10,0,0" Style="{StaticResource ButtonStyle}"/>
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

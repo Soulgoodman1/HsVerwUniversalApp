@@ -16,7 +16,9 @@ Public NotInheritable Class ListConsumption
         Dim vlo_client As New HsVerwSvc.Service1Client
         Dim _hhkatresult As Task(Of ObservableCollection(Of HsVerwSvc.Verbrauch)) = vlo_client.GetVerbrauchAsync
 
-        ListviewConsumption.ItemsSource = _hhkatresult.Result
+        ListviewConsumption.ItemsSource = _hhkatresult.Result.Where(Function(vlo_verbrauch) vlo_verbrauch.Datum > "01.01.2015").OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
+
+
 
     End Sub
 

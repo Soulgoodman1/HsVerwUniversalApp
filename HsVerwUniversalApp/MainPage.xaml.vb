@@ -3,6 +3,11 @@
 ''' <summary>
 ''' Eine leere Seite, die eigenständig verwendet oder zu der innerhalb eines Rahmens navigiert werden kann.
 ''' </summary>
+''' 
+Imports System.Net.NetworkInformation
+Imports Windows.Networking.Sockets
+Imports Windows.UI
+
 Public NotInheritable Class MainPage
     Inherits Page
 
@@ -30,7 +35,7 @@ Public NotInheritable Class MainPage
 
     End Sub
 
-    Private Sub MainPage_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
+    Private Async Sub MainPage_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
 
         'Falls bereits Handler vorhanden zuerst löschen, sonst mehrfaches Auslösen des BackPressed
         RemoveHandler Windows.Phone.UI.Input.HardwareButtons.BackPressed, AddressOf App_BackHardware
@@ -42,12 +47,42 @@ Public NotInheritable Class MainPage
             AddHandler Windows.UI.Core.SystemNavigationManager.GetForCurrentView.BackRequested, AddressOf App_Backrequested
         End If
 
+        'Test for Internet-Connection
+        If NetworkInterface.GetIsNetworkAvailable Then
+            'Internet available
+            ckb_internet.Content = "Internet erreichbar"
+            ckb_internet.IsChecked = True
+            ckb_server.Content = "Server erreichbar"
+            ckb_server.IsChecked = True
+            Dim _serveravailable As Boolean = Await TestServer()
+
+            If _serveravailable Then
+                'Server available
+                ' Zur neuen Seite navigieren
+                Frame.Navigate(GetType(MainHub))
+            Else
+                'Server Down
+                ckb_server.IsChecked = False
+            End If
+
+        Else
+            'No Internet Connection
+            ckb_internet.IsChecked = False
+            ckb_server.IsChecked = False
+        End If
+
     End Sub
+    Private Async Function TestServer() As Task(Of Boolean)
 
-    Private Sub btn_weiterzutest_Click(sender As Object, e As RoutedEventArgs) Handles btn_weiterzutest.Click
+        Using _client As StreamSocket = New StreamSocket
+            Try
+                Await _client.ConnectAsync(New Windows.Networking.HostName("www.ralfabels.de"), "80")
+            Catch ex As Exception
+                Return False
+            End Try
+        End Using
 
-        ' Zur neuen Seite navigieren
-        Frame.Navigate(GetType(MainHub))
+        Return True
+    End Function
 
-    End Sub
 End Class
