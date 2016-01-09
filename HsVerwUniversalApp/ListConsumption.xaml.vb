@@ -3,6 +3,10 @@
 ''' <summary>
 ''' Eine leere Seite, die eigenständig verwendet oder zu der innerhalb eines Rahmens navigiert werden kann.
 ''' </summary>
+''' 
+
+Imports HsVerwUniversalApp.MainHub
+
 Public NotInheritable Class ListConsumption
     Inherits Page
 
@@ -16,9 +20,7 @@ Public NotInheritable Class ListConsumption
         Dim vlo_client As New HsVerwSvc.Service1Client
         Dim _hhkatresult As Task(Of ObservableCollection(Of HsVerwSvc.Verbrauch)) = vlo_client.GetVerbrauchAsync
 
-        ListviewConsumption.ItemsSource = _hhkatresult.Result.Where(Function(vlo_verbrauch) vlo_verbrauch.Datum > "01.01.2015").OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
-
-
+        ListviewConsumption.ItemsSource = _hhkatresult.Result.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > "31.12." & DateTime.Now.Year - 2) And (vlo_verbrauch.Datum < "01.01." & DateTime.Now.Year)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
 
     End Sub
 

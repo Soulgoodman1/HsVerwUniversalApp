@@ -3,145 +3,151 @@
 ''' <summary>
 ''' Eine leere Seite, die eigenständig verwendet oder zu der innerhalb eines Rahmens navigiert werden kann.
 ''' </summary>
+Imports System.Globalization
+
 Public NotInheritable Class MainHub
-    Inherits Page
+        Inherits Page
 
-    Private _userdatacontext As UserDataContext
+        Private _userdatacontext As UserDataContext
 
-    Public Sub New()
+        Public Sub New()
 
-        ' Dieser Aufruf ist für den Designer erforderlich.
-        InitializeComponent()
+            ' Dieser Aufruf ist für den Designer erforderlich.
+            InitializeComponent()
 
-        ' Fügen Sie Initialisierungen nach dem InitializeComponent()-Aufruf hinzu.
+            ' Fügen Sie Initialisierungen nach dem InitializeComponent()-Aufruf hinzu.
 
-        Dim vlo_client As New HsVerwSvc.Service1Client
-        Dim _hhauswertung As Task(Of HsVerwSvc.Auswertung) = vlo_client.GetAuswertungAsync
+            Dim vlo_client As New HsVerwSvc.Service1Client
+            Dim _hhauswertung As Task(Of HsVerwSvc.Auswertung) = vlo_client.GetAuswertungAsync
 
-        _userdatacontext = New UserDataContext(_hhauswertung.Result)
-        _userdatacontext.SectionWidth = Window.Current.Bounds.Width
+            _userdatacontext = New UserDataContext(_hhauswertung.Result)
+            _userdatacontext.SectionWidth = Window.Current.Bounds.Width
 
-        Me.DataContext = _userdatacontext
-    End Sub
+            Me.DataContext = _userdatacontext
+        End Sub
 
-    Private Sub App_BackHardware(sender As Object, e As Windows.Phone.UI.Input.BackPressedEventArgs)
+        Private Sub App_BackHardware(sender As Object, e As Windows.Phone.UI.Input.BackPressedEventArgs)
 
-        If Frame.CanGoBack Then
-            e.Handled = True
-            Frame.GoBack()
-        End If
+            If Frame.CanGoBack Then
+                e.Handled = True
+                Frame.GoBack()
+            End If
 
-    End Sub
+        End Sub
 
-    Private Sub App_Backrequested(sender As Object, e As Windows.UI.Core.BackRequestedEventArgs)
+        Private Sub App_Backrequested(sender As Object, e As Windows.UI.Core.BackRequestedEventArgs)
 
-        If Frame.CanGoBack Then
-            e.Handled = True
-            Frame.GoBack()
-        End If
+            If Frame.CanGoBack Then
+                e.Handled = True
+                Frame.GoBack()
+            End If
 
-    End Sub
+        End Sub
 
-    Private Sub MainHub_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
+        Private Sub MainHub_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
 
-        If Frame.CanGoBack Then
-            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = Windows.UI.Core.AppViewBackButtonVisibility.Visible
-        Else
-            Windows.UI.Core.SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = Windows.UI.Core.AppViewBackButtonVisibility.Collapsed
-        End If
+            If Frame.CanGoBack Then
+                Windows.UI.Core.SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = Windows.UI.Core.AppViewBackButtonVisibility.Visible
+            Else
+                Windows.UI.Core.SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = Windows.UI.Core.AppViewBackButtonVisibility.Collapsed
+            End If
 
-    End Sub
+        End Sub
 
-    Private Sub hinzufuegenEinnahme()
+        Private Sub hinzufuegenEinnahme()
 
-    End Sub
+        End Sub
 
-    Private Sub auflistenEinnahme(sender As Object, e As RoutedEventArgs)
+        Private Sub auflistenEinnahme(sender As Object, e As RoutedEventArgs)
 
-        Frame.Navigate(GetType(ListIncome))
+            Frame.Navigate(GetType(ListIncome))
 
-    End Sub
+        End Sub
 
-    Private Sub hinzufuegenAusgabe()
+        Private Sub hinzufuegenAusgabe()
 
-    End Sub
+        End Sub
 
-    Private Sub auflistenAusgabe(sender As Object, e As RoutedEventArgs)
+        Private Sub auflistenAusgabe(sender As Object, e As RoutedEventArgs)
 
-        Frame.Navigate(GetType(ListExpense))
+            Frame.Navigate(GetType(ListExpense))
 
-    End Sub
+        End Sub
 
-    Private Sub hinzufuegenVerbrauch()
+        Private Sub hinzufuegenVerbrauch()
 
-    End Sub
+        End Sub
 
-    Private Sub auflistenVerbrauch(sender As Object, e As RoutedEventArgs)
+        Private Sub auflistenVerbrauch(sender As Object, e As RoutedEventArgs)
 
-        Frame.Navigate(GetType(ListConsumption))
+            Frame.Navigate(GetType(ListConsumption))
 
-    End Sub
-    Private Sub auflistenAuswertung(sender As Object, e As RoutedEventArgs)
+        End Sub
+        Private Sub auflistenAuswertung(sender As Object, e As RoutedEventArgs)
 
-    End Sub
+        End Sub
 
-    Private Sub Page_SizeChanged(sender As Object, e As SizeChangedEventArgs) Handles Me.SizeChanged
+        Private Sub Page_SizeChanged(sender As Object, e As SizeChangedEventArgs) Handles Me.SizeChanged
 
-        _userdatacontext.SectionWidth = Window.Current.Bounds.Width
+            _userdatacontext.SectionWidth = Window.Current.Bounds.Width
 
-    End Sub
+        End Sub
 
-    Private Sub HausverwaltungHub_SectionsInViewChanged(sender As Object, e As SectionsInViewChangedEventArgs) Handles HausverwaltungHub.SectionsInViewChanged
+        Private Sub HausverwaltungHub_SectionsInViewChanged(sender As Object, e As SectionsInViewChangedEventArgs) Handles HausverwaltungHub.SectionsInViewChanged
 
-        Try
-            Select Case e.AddedSections(0).Header
-                Case "Einnahmen"
+            Try
+                Select Case e.AddedSections(0).Header
+                    Case "Einnahmen"
 
-                    btn_hinzufuegenEinnahme.Visibility = Visibility.Visible
-                    btn_auflistenEinnahme.Visibility = Visibility.Visible
-                    btn_hinzufuegenVerbrauch.Visibility = Visibility.Collapsed
-                    btn_auflistenVerbrauch.Visibility = Visibility.Collapsed
-                    btn_hinzufuegenAusgabe.Visibility = Visibility.Collapsed
-                    btn_auflistenAusgabe.Visibility = Visibility.Collapsed
-                    btn_auflistenAuswertung.Visibility = Visibility.Collapsed
+                        btn_hinzufuegenEinnahme.Visibility = Visibility.Visible
+                        btn_auflistenEinnahme.Visibility = Visibility.Visible
+                        btn_hinzufuegenVerbrauch.Visibility = Visibility.Collapsed
+                        btn_auflistenVerbrauch.Visibility = Visibility.Collapsed
+                        btn_hinzufuegenAusgabe.Visibility = Visibility.Collapsed
+                        btn_auflistenAusgabe.Visibility = Visibility.Collapsed
+                        btn_auflistenAuswertung.Visibility = Visibility.Collapsed
 
-                Case "Ausgaben"
+                    Case "Ausgaben"
 
-                    btn_hinzufuegenEinnahme.Visibility = Visibility.Collapsed
-                    btn_auflistenEinnahme.Visibility = Visibility.Collapsed
-                    btn_hinzufuegenVerbrauch.Visibility = Visibility.Collapsed
-                    btn_auflistenVerbrauch.Visibility = Visibility.Collapsed
-                    btn_hinzufuegenAusgabe.Visibility = Visibility.Visible
-                    btn_auflistenAusgabe.Visibility = Visibility.Visible
-                    btn_auflistenAuswertung.Visibility = Visibility.Collapsed
+                        btn_hinzufuegenEinnahme.Visibility = Visibility.Collapsed
+                        btn_auflistenEinnahme.Visibility = Visibility.Collapsed
+                        btn_hinzufuegenVerbrauch.Visibility = Visibility.Collapsed
+                        btn_auflistenVerbrauch.Visibility = Visibility.Collapsed
+                        btn_hinzufuegenAusgabe.Visibility = Visibility.Visible
+                        btn_auflistenAusgabe.Visibility = Visibility.Visible
+                        btn_auflistenAuswertung.Visibility = Visibility.Collapsed
 
-                Case "Verbrauch"
+                    Case "Verbrauch"
 
-                    btn_hinzufuegenEinnahme.Visibility = Visibility.Collapsed
-                    btn_auflistenEinnahme.Visibility = Visibility.Collapsed
-                    btn_hinzufuegenVerbrauch.Visibility = Visibility.Visible
-                    btn_auflistenVerbrauch.Visibility = Visibility.Visible
-                    btn_hinzufuegenAusgabe.Visibility = Visibility.Collapsed
-                    btn_auflistenAusgabe.Visibility = Visibility.Collapsed
-                    btn_auflistenAuswertung.Visibility = Visibility.Collapsed
+                        btn_hinzufuegenEinnahme.Visibility = Visibility.Collapsed
+                        btn_auflistenEinnahme.Visibility = Visibility.Collapsed
+                        btn_hinzufuegenVerbrauch.Visibility = Visibility.Visible
+                        btn_auflistenVerbrauch.Visibility = Visibility.Visible
+                        btn_hinzufuegenAusgabe.Visibility = Visibility.Collapsed
+                        btn_auflistenAusgabe.Visibility = Visibility.Collapsed
+                        btn_auflistenAuswertung.Visibility = Visibility.Collapsed
 
-                Case "Auswertung"
+                    Case "Auswertung"
 
-                    btn_hinzufuegenEinnahme.Visibility = Visibility.Collapsed
-                    btn_auflistenEinnahme.Visibility = Visibility.Collapsed
-                    btn_hinzufuegenVerbrauch.Visibility = Visibility.Collapsed
-                    btn_auflistenVerbrauch.Visibility = Visibility.Collapsed
-                    btn_hinzufuegenAusgabe.Visibility = Visibility.Collapsed
-                    btn_auflistenAusgabe.Visibility = Visibility.Collapsed
-                    btn_auflistenAuswertung.Visibility = Visibility.Visible
+                        btn_hinzufuegenEinnahme.Visibility = Visibility.Collapsed
+                        btn_auflistenEinnahme.Visibility = Visibility.Collapsed
+                        btn_hinzufuegenVerbrauch.Visibility = Visibility.Collapsed
+                        btn_auflistenVerbrauch.Visibility = Visibility.Collapsed
+                        btn_hinzufuegenAusgabe.Visibility = Visibility.Collapsed
+                        btn_auflistenAusgabe.Visibility = Visibility.Collapsed
+                        btn_auflistenAuswertung.Visibility = Visibility.Visible
 
-            End Select
+                End Select
 
-        Catch ex As Exception
+            Catch ex As Exception
 
-        End Try
+            End Try
 
-    End Sub
+        End Sub
+
+
+    End Class
+
 
     Public Class UserDataContext
         Inherits HsVerwSvc.Auswertung
@@ -192,5 +198,23 @@ Public NotInheritable Class MainHub
 
     End Class
 
+#Region "DateConverter"
+Public Class DateConverter
+    Implements IValueConverter
 
+    Public Function Convert(value As Object, targetType As Type, parameter As Object, language As String) As Object Implements IValueConverter.Convert
+
+        Dim formatstring As String = TryCast(parameter, String)
+        If Not String.IsNullOrEmpty(formatstring) Then
+            Return String.Format(New CultureInfo(language), formatstring, value)
+        End If
+
+        Return value.ToString
+
+    End Function
+
+    Public Function ConvertBack(value As Object, targetType As Type, parameter As Object, language As String) As Object Implements IValueConverter.ConvertBack
+        Throw New NotImplementedException()
+    End Function
 End Class
+#End Region
