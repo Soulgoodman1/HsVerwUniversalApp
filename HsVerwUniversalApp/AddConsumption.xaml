@@ -12,9 +12,6 @@
         </CommandBar>
     </Page.BottomAppBar>
     <Grid Background="Goldenrod">
-        <Grid.Resources>
-            <local:DateConverter x:Key="dateConverter"/>
-        </Grid.Resources>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="25*"/>
@@ -29,16 +26,16 @@
             <RowDefinition Height="60*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Neuer Verbrauch" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" FontSize="40"/>
-        <ComboBox Name="cbo_verbrauchstyp" ItemsSource="{Binding}"  VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Background="Gold" FontSize="20" VerticalContentAlignment="Center">
+        <ComboBox Name="cbo_verbrauchstyp" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Background="Gold" FontSize="20" VerticalContentAlignment="Center">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-                        <TextBlock Text="{Binding HaushaltskategorieMember}" MaxHeight="80" FontSize="20" TextTrimming="WordEllipsis" HorizontalAlignment="Left" />
+                    <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" HorizontalAlignment="Stretch">
+                        <TextBlock Text="{Binding Haushaltsunterkategorie}" MaxHeight="80" FontSize="20" TextTrimming="WordEllipsis" HorizontalAlignment="Left" />
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
-            </ComboBox>
-            <DatePicker Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3"  Background="Gold" FontSize="20" HorizontalAlignment="Stretch" />
+        </ComboBox>
+        <DatePicker Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3"  Background="Gold" FontSize="20" HorizontalAlignment="Stretch" />
         <TextBox Text="Wert eingeben" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" FontSize="20" Background="Gold" VerticalContentAlignment="Center"/>
     </Grid>
 </Page>

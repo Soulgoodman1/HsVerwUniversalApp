@@ -1,12 +1,13 @@
-﻿' Die Vorlage "Leere Seite" ist unter http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 dokumentiert.
+﻿Imports System.Net.NetworkInformation
+Imports Windows.Networking.Sockets
+Imports Windows.UI
+' Die Vorlage "Leere Seite" ist unter http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 dokumentiert.
 
 ''' <summary>
 ''' Eine leere Seite, die eigenständig verwendet oder zu der innerhalb eines Rahmens navigiert werden kann.
 ''' </summary>
 ''' 
-Imports System.Net.NetworkInformation
-Imports Windows.Networking.Sockets
-Imports Windows.UI
+
 
 Public NotInheritable Class MainPage
     Inherits Page
