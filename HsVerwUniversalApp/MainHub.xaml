@@ -18,7 +18,7 @@
         </Style>
     </Page.Resources>
     <Page.BottomAppBar>
-        <CommandBar IsOpen="True" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Visibility="Visible">
+        <CommandBar IsOpen="False" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Visibility="Visible">
             <AppBarButton Name="btn_hinzufuegenEinnahme"  Icon="Add" Label="Hinzufügen" Click="hinzufuegenEinnahme" Visibility="Visible"/>
             <AppBarButton Name="btn_auflistenEinnahme"  Icon="List" Label="Anzeigen" Click="auflistenEinnahme" Visibility="Visible"/>
             <AppBarButton Name="btn_hinzufuegenVerbrauch"  Icon="Add" Label="Hinzufügen" Click="hinzufuegenVerbrauch" Visibility="Collapsed"/>
@@ -26,6 +26,11 @@
             <AppBarButton Name="btn_hinzufuegenAusgabe"  Icon="Add" Label="Hinzufügen" Click="hinzufuegenAusgabe" Visibility="Collapsed"/>
             <AppBarButton Name="btn_auflistenAusgabe"  Icon="List" Label="Anzeigen" Click="auflistenAusgabe" Visibility="Collapsed"/>
             <AppBarButton Name="btn_auflistenAuswertung"  Icon="List" Label="Anzeigen" Click="auflistenAuswertung" Visibility="Collapsed"/>
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Name="btn_einheiten"  Icon="Add" Label="Einheiten" Click="aenderneinheiten" Visibility="Visible"/>
+                <AppBarButton Name="btn_kategorien"  Icon="Add" Label="Kategorien" Click="aendernukat" Visibility="Visible"/>
+                <AppBarButton Name="btn_preise"  Icon="Add" Label="Preise" Click="aendernpreise" Visibility="Visible"/>
+            </CommandBar.SecondaryCommands>
         </CommandBar>
     </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RequestedTheme="Dark">

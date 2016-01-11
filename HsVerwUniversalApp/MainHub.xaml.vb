@@ -74,20 +74,36 @@ Public NotInheritable Class MainHub
 
         End Sub
 
-        Private Sub hinzufuegenVerbrauch()
+    Private Sub hinzufuegenVerbrauch()
 
-        End Sub
+        Frame.Navigate(GetType(AddConsumption))
 
-        Private Sub auflistenVerbrauch(sender As Object, e As RoutedEventArgs)
+    End Sub
 
-            Frame.Navigate(GetType(ListConsumption))
+    Private Sub auflistenVerbrauch(sender As Object, e As RoutedEventArgs)
 
-        End Sub
-        Private Sub auflistenAuswertung(sender As Object, e As RoutedEventArgs)
+        Frame.Navigate(GetType(ListConsumption))
 
-        End Sub
+    End Sub
 
-        Private Sub Page_SizeChanged(sender As Object, e As SizeChangedEventArgs) Handles Me.SizeChanged
+    Private Sub auflistenAuswertung(sender As Object, e As RoutedEventArgs)
+
+    End Sub
+
+    Private Sub aenderneinheiten(sender As Object, e As RoutedEventArgs)
+
+    End Sub
+
+    Private Sub aendernukat(sender As Object, e As RoutedEventArgs)
+
+    End Sub
+
+    Private Sub aendernpreise(sender As Object, e As RoutedEventArgs)
+
+    End Sub
+
+
+    Private Sub Page_SizeChanged(sender As Object, e As SizeChangedEventArgs) Handles Me.SizeChanged
 
             _userdatacontext.SectionWidth = Window.Current.Bounds.Width
 

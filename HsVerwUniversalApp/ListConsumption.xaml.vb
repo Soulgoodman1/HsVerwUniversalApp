@@ -24,4 +24,22 @@ Public NotInheritable Class ListConsumption
 
     End Sub
 
+    Private Sub hinzufuegenVerbrauch(sender As Object, e As RoutedEventArgs)
+
+        Frame.Navigate(GetType(AddConsumption))
+
+    End Sub
+
+    Private Sub loeschenVerbrauch(sender As Object, e As RoutedEventArgs)
+
+    End Sub
+
+    Private Sub aendernVerbrauch(sender As Object, e As RoutedEventArgs)
+
+    End Sub
+
+    Private Sub suchenVerbrauch(sender As Object, e As RoutedEventArgs)
+
+    End Sub
+
 End Class

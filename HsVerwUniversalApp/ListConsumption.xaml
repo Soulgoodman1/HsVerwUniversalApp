@@ -6,7 +6,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
+    <Page.BottomAppBar>
+        <CommandBar IsOpen="False" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Visibility="Visible">
+            <AppBarButton Name="btn_hinzufuegenverbrauch"  Icon="Add" Label="Hinzufügen" Click="hinzufuegenVerbrauch" Visibility="Visible"/>
+            <AppBarButton Name="btn_loeschenVerbrauch"  Icon="Delete" Label="Löschen" Click="loeschenVerbrauch" Visibility="Visible"/>
+            <AppBarButton Name="btn_aendernVerbrauch"  Icon="Edit" Label="Ändern" Click="aendernVerbrauch" Visibility="Visible"/>
+            <AppBarButton Name="btn_suchenVerbrauch"  Icon="Find" Label="Ändern" Click="suchenVerbrauch" Visibility="Visible"/>
+        </CommandBar>
+    </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid.Resources>
             <local:DateConverter x:Key="dateConverter"/>
