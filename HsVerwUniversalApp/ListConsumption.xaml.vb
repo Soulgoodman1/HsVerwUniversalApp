@@ -19,7 +19,7 @@ Public NotInheritable Class ListConsumption
         Dim vlo_client As New HsVerwSvc.Service1Client
         Dim _hhkatresult As Task(Of ObservableCollection(Of HsVerwSvc.Verbrauch)) = vlo_client.GetVerbrauchAsync
 
-        ListviewConsumption.ItemsSource = _hhkatresult.Result.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > "31.12." & DateTime.Now.Year - 2) And (vlo_verbrauch.Datum < "01.01." & DateTime.Now.Year)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
+        ListviewConsumption.ItemsSource = _hhkatresult.Result.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > "31.12." & DateTime.Now.Year - 2) And (vlo_verbrauch.Datum < "01.02." & DateTime.Now.Year)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
 
     End Sub
 
@@ -32,16 +32,21 @@ Public NotInheritable Class ListConsumption
     Private Sub loeschenVerbrauch(sender As Object, e As RoutedEventArgs)
 
         Dim vlo_client As New HsVerwSvc.Service1Client
-        Dim vlo_verbrauch As HsVerwSvc.Verbrauch
+        Dim vlo_verbrauchselected As HsVerwSvc.Verbrauch
 
 
-        For Each vlo_verbrauch In ListviewConsumption.SelectedItems
+        For Each vlo_verbrauchselected In ListviewConsumption.SelectedItems
 
-            Dim _hhsetresult As Task(Of Boolean) = vlo_client.DeleteVerbrauchAsync(vlo_verbrauch)
+            Dim _hhsetresult As Task(Of Boolean) = vlo_client.DeleteVerbrauchAsync(vlo_verbrauchselected)
 
         Next
 
-        vlo_verbrauch = Nothing
+        Dim _hhkatresult As Task(Of ObservableCollection(Of HsVerwSvc.Verbrauch)) = vlo_client.GetVerbrauchAsync
+
+        ListviewConsumption.ItemsSource = Nothing
+        ListviewConsumption.ItemsSource = _hhkatresult.Result.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > "31.12." & DateTime.Now.Year - 2) And (vlo_verbrauch.Datum < "01.02." & DateTime.Now.Year)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
+
+        vlo_verbrauchselected = Nothing
         vlo_client = Nothing
 
     End Sub
