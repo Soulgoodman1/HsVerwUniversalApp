@@ -31,6 +31,19 @@ Public NotInheritable Class ListConsumption
 
     Private Sub loeschenVerbrauch(sender As Object, e As RoutedEventArgs)
 
+        Dim vlo_client As New HsVerwSvc.Service1Client
+        Dim vlo_verbrauch As HsVerwSvc.Verbrauch
+
+
+        For Each vlo_verbrauch In ListviewConsumption.SelectedItems
+
+            Dim _hhsetresult As Task(Of Boolean) = vlo_client.DeleteVerbrauchAsync(vlo_verbrauch)
+
+        Next
+
+        vlo_verbrauch = Nothing
+        vlo_client = Nothing
+
     End Sub
 
     Private Sub aendernVerbrauch(sender As Object, e As RoutedEventArgs)

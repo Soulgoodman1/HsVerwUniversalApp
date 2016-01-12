@@ -35,7 +35,7 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <DatePicker Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3"  Background="Gold" FontSize="20" HorizontalAlignment="Stretch" />
-        <TextBox Text="Wert eingeben" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" FontSize="20" Background="Gold" VerticalAlignment="Top"/>
+        <DatePicker Name="ctrl_datepicker"  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3"  Background="Gold" FontSize="20" HorizontalAlignment="Stretch" />
+        <TextBox Name="txt_wert" Text="Wert eingeben" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" FontSize="20" Background="Gold" VerticalAlignment="Top"/>
     </Grid>
 </Page>
