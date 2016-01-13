@@ -107,10 +107,16 @@
     <None Include="Service References\HsVerwSvc\HsVerwUniversalApp.HsVerwSvc.Auswertung.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\HsVerwSvc\HsVerwUniversalApp.HsVerwSvc.Einheit.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\HsVerwSvc\HsVerwUniversalApp.HsVerwSvc.Einnahme.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\HsVerwSvc\HsVerwUniversalApp.HsVerwSvc.Haushaltskategorie.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\HsVerwSvc\HsVerwUniversalApp.HsVerwSvc.Haushaltsunterkategorie.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\HsVerwSvc\HsVerwUniversalApp.HsVerwSvc.IService1Verbrauchstyp.datasource">
@@ -146,6 +152,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Search.xaml.vb">
+      <DependentUpon>Search.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddIncome.xaml.vb">
+      <DependentUpon>AddIncome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddExpense.xaml.vb">
+      <DependentUpon>AddExpense.xaml</DependentUpon>
+    </Compile>
     <Compile Include="App.xaml.vb">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -194,6 +209,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Search.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AddIncome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AddExpense.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="AddConsumption.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -52,6 +52,8 @@ Public NotInheritable Class ListConsumption
 
     Private Sub suchenVerbrauch(sender As Object, e As RoutedEventArgs)
 
+        Frame.Navigate(GetType(Search), "Verbrauch")
+
     End Sub
 
 End Class

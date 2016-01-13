@@ -55,21 +55,25 @@ Public NotInheritable Class MainHub
 
         End Sub
 
-        Private Sub hinzufuegenEinnahme()
+    Private Sub hinzufuegenEinnahme()
 
-        End Sub
+        Frame.Navigate(GetType(AddIncome))
 
-        Private Sub auflistenEinnahme(sender As Object, e As RoutedEventArgs)
+    End Sub
+
+    Private Sub auflistenEinnahme(sender As Object, e As RoutedEventArgs)
 
             Frame.Navigate(GetType(ListIncome))
 
         End Sub
 
-        Private Sub hinzufuegenAusgabe()
+    Private Sub hinzufuegenAusgabe()
 
-        End Sub
+        Frame.Navigate(GetType(AddExpense))
 
-        Private Sub auflistenAusgabe(sender As Object, e As RoutedEventArgs)
+    End Sub
+
+    Private Sub auflistenAusgabe(sender As Object, e As RoutedEventArgs)
 
             Frame.Navigate(GetType(ListExpense))
 

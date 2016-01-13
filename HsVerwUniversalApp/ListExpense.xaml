@@ -6,7 +6,14 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
+    <Page.BottomAppBar>
+        <CommandBar IsOpen="False" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Visibility="Visible">
+            <AppBarButton Name="btn_hinzufuegenAusgabe"  Icon="Add" Label="Hinzufügen" Click="hinzufuegenAusgabe" Visibility="Visible"/>
+            <AppBarButton Name="btn_loeschenAusgabe"  Icon="Delete" Label="Löschen" Click="loeschenAusgabe" Visibility="Visible"/>
+            <AppBarButton Name="btn_aendernAusgabe"  Icon="Edit" Label="Ändern" Click="aendernAusgabe" Visibility="Visible"/>
+            <AppBarButton Name="btn_suchenAusgabe"  Icon="Find" Label="Ändern" Click="suchenAusgabe" Visibility="Visible"/>
+        </CommandBar>
+    </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <ListView Name="ListviewExpense" ItemsSource="{Binding}" Background="Coral">
             <ListView.ItemTemplate>

@@ -21,4 +21,37 @@ Public NotInheritable Class ListExpense
 
     End Sub
 
+    Private Sub hinzufuegenAusgabe(sender As Object, e As RoutedEventArgs)
+
+        Frame.Navigate(GetType(AddExpense))
+
+    End Sub
+
+    Private Sub loeschenAusgabe(sender As Object, e As RoutedEventArgs)
+
+        Dim vlo_client As New HsVerwSvc.Service1Client
+        Dim vlo_ausgabe As HsVerwSvc.Ausgabe
+
+
+        For Each vlo_ausgabe In ListviewExpense.SelectedItems
+
+            Dim _hhsetresult As Task(Of Boolean) = vlo_client.DeleteAusgabeAsync(vlo_ausgabe)
+
+        Next
+
+        vlo_ausgabe = Nothing
+        vlo_client = Nothing
+
+    End Sub
+
+    Private Sub aendernAusgabe(sender As Object, e As RoutedEventArgs)
+
+    End Sub
+
+    Private Sub suchenAusgabe(sender As Object, e As RoutedEventArgs)
+
+        Frame.Navigate(GetType(Search), "Ausgabe")
+
+    End Sub
+
 End Class

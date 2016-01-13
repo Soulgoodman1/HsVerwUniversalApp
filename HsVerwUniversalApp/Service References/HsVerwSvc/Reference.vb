@@ -440,6 +440,53 @@ Namespace HsVerwSvc
     
     <System.Diagnostics.DebuggerStepThroughAttribute(),  _
      System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0"),  _
+     System.Runtime.Serialization.DataContractAttribute(Name:="Einheit", [Namespace]:="http://schemas.datacontract.org/2004/07/HsVerwWCFService")>  _
+    Partial Public Class Einheit
+        Inherits Object
+        Implements System.ComponentModel.INotifyPropertyChanged
+        
+        Private EinheitMemberField As String
+        
+        Private IDField As Long
+        
+        <System.Runtime.Serialization.DataMemberAttribute(Name:="Einheit")>  _
+        Public Property EinheitMember() As String
+            Get
+                Return Me.EinheitMemberField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.EinheitMemberField, value) <> true) Then
+                    Me.EinheitMemberField = value
+                    Me.RaisePropertyChanged("EinheitMember")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property ID() As Long
+            Get
+                Return Me.IDField
+            End Get
+            Set
+                If (Me.IDField.Equals(value) <> true) Then
+                    Me.IDField = value
+                    Me.RaisePropertyChanged("ID")
+                End If
+            End Set
+        End Property
+        
+        Public Event PropertyChanged As System.ComponentModel.PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+        
+        Protected Sub RaisePropertyChanged(ByVal propertyName As String)
+            Dim propertyChanged As System.ComponentModel.PropertyChangedEventHandler = Me.PropertyChangedEvent
+            If (Not (propertyChanged) Is Nothing) Then
+                propertyChanged(Me, New System.ComponentModel.PropertyChangedEventArgs(propertyName))
+            End If
+        End Sub
+    End Class
+    
+    <System.Diagnostics.DebuggerStepThroughAttribute(),  _
+     System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0"),  _
      System.Runtime.Serialization.DataContractAttribute(Name:="VarVerbrauchKat", [Namespace]:="http://schemas.datacontract.org/2004/07/HsVerwWCFService")>  _
     Partial Public Class VarVerbrauchKat
         Inherits Object
@@ -518,6 +565,68 @@ Namespace HsVerwSvc
                 If (Me.IDField.Equals(value) <> true) Then
                     Me.IDField = value
                     Me.RaisePropertyChanged("ID")
+                End If
+            End Set
+        End Property
+        
+        Public Event PropertyChanged As System.ComponentModel.PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+        
+        Protected Sub RaisePropertyChanged(ByVal propertyName As String)
+            Dim propertyChanged As System.ComponentModel.PropertyChangedEventHandler = Me.PropertyChangedEvent
+            If (Not (propertyChanged) Is Nothing) Then
+                propertyChanged(Me, New System.ComponentModel.PropertyChangedEventArgs(propertyName))
+            End If
+        End Sub
+    End Class
+    
+    <System.Diagnostics.DebuggerStepThroughAttribute(),  _
+     System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0"),  _
+     System.Runtime.Serialization.DataContractAttribute(Name:="Haushaltsunterkategorie", [Namespace]:="http://schemas.datacontract.org/2004/07/HsVerwWCFService")>  _
+    Partial Public Class Haushaltsunterkategorie
+        Inherits Object
+        Implements System.ComponentModel.INotifyPropertyChanged
+        
+        Private HaushaltsunterkategorieMemberField As String
+        
+        Private IDField As Long
+        
+        Private KategorieIDField As Long
+        
+        <System.Runtime.Serialization.DataMemberAttribute(Name:="Haushaltsunterkategorie")>  _
+        Public Property HaushaltsunterkategorieMember() As String
+            Get
+                Return Me.HaushaltsunterkategorieMemberField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.HaushaltsunterkategorieMemberField, value) <> true) Then
+                    Me.HaushaltsunterkategorieMemberField = value
+                    Me.RaisePropertyChanged("HaushaltsunterkategorieMember")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property ID() As Long
+            Get
+                Return Me.IDField
+            End Get
+            Set
+                If (Me.IDField.Equals(value) <> true) Then
+                    Me.IDField = value
+                    Me.RaisePropertyChanged("ID")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property KategorieID() As Long
+            Get
+                Return Me.KategorieIDField
+            End Get
+            Set
+                If (Me.KategorieIDField.Equals(value) <> true) Then
+                    Me.KategorieIDField = value
+                    Me.RaisePropertyChanged("KategorieID")
                 End If
             End Set
         End Property
@@ -769,6 +878,9 @@ Namespace HsVerwSvc
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/GetZahlungsrythmen", ReplyAction:="http://tempuri.org/IService1/GetZahlungsrythmenResponse")>  _
         Function GetZahlungsrythmenAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Zahlungsrythmus))
         
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/GetEinheiten", ReplyAction:="http://tempuri.org/IService1/GetEinheitenResponse")>  _
+        Function GetEinheitenAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Einheit))
+        
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/GetVarVerbrauchKat", ReplyAction:="http://tempuri.org/IService1/GetVarVerbrauchKatResponse")>  _
         Function GetVarVerbrauchKatAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.VarVerbrauchKat))
         
@@ -801,6 +913,9 @@ Namespace HsVerwSvc
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/GetHaushaltskategorien", ReplyAction:="http://tempuri.org/IService1/GetHaushaltskategorienResponse")>  _
         Function GetHaushaltskategorienAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Haushaltskategorie))
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/GetHaushaltsunterkategorien", ReplyAction:="http://tempuri.org/IService1/GetHaushaltsunterkategorienResponse")>  _
+        Function GetHaushaltsunterkategorienAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Haushaltsunterkategorie))
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/GetAuswertung", ReplyAction:="http://tempuri.org/IService1/GetAuswertungResponse")>  _
         Function GetAuswertungAsync() As System.Threading.Tasks.Task(Of HsVerwSvc.Auswertung)
@@ -901,6 +1016,10 @@ Namespace HsVerwSvc
             Return MyBase.Channel.GetZahlungsrythmenAsync
         End Function
         
+        Public Function GetEinheitenAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Einheit)) Implements HsVerwSvc.IService1.GetEinheitenAsync
+            Return MyBase.Channel.GetEinheitenAsync
+        End Function
+        
         Public Function GetVarVerbrauchKatAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.VarVerbrauchKat)) Implements HsVerwSvc.IService1.GetVarVerbrauchKatAsync
             Return MyBase.Channel.GetVarVerbrauchKatAsync
         End Function
@@ -943,6 +1062,10 @@ Namespace HsVerwSvc
         
         Public Function GetHaushaltskategorienAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Haushaltskategorie)) Implements HsVerwSvc.IService1.GetHaushaltskategorienAsync
             Return MyBase.Channel.GetHaushaltskategorienAsync
+        End Function
+        
+        Public Function GetHaushaltsunterkategorienAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Haushaltsunterkategorie)) Implements HsVerwSvc.IService1.GetHaushaltsunterkategorienAsync
+            Return MyBase.Channel.GetHaushaltsunterkategorienAsync
         End Function
         
         Public Function GetAuswertungAsync() As System.Threading.Tasks.Task(Of HsVerwSvc.Auswertung) Implements HsVerwSvc.IService1.GetAuswertungAsync

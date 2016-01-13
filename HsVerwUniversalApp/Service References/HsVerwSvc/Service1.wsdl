@@ -79,6 +79,12 @@
   <wsdl:message name="IService1_GetZahlungsrythmen_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetZahlungsrythmenResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetEinheiten_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEinheiten" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetEinheiten_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEinheitenResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetVarVerbrauchKat_InputMessage">
     <wsdl:part name="parameters" element="tns:GetVarVerbrauchKat" />
   </wsdl:message>
@@ -145,6 +151,12 @@
   <wsdl:message name="IService1_GetHaushaltskategorien_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetHaushaltskategorienResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetHaushaltsunterkategorien_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetHaushaltsunterkategorien" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetHaushaltsunterkategorien_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetHaushaltsunterkategorienResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_GetAuswertung_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAuswertung" />
   </wsdl:message>
@@ -200,6 +212,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetZahlungsrythmen" message="tns:IService1_GetZahlungsrythmen_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetZahlungsrythmenResponse" message="tns:IService1_GetZahlungsrythmen_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetEinheiten">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetEinheiten" message="tns:IService1_GetEinheiten_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetEinheitenResponse" message="tns:IService1_GetEinheiten_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetVarVerbrauchKat">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVarVerbrauchKat" message="tns:IService1_GetVarVerbrauchKat_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetVarVerbrauchKatResponse" message="tns:IService1_GetVarVerbrauchKat_OutputMessage" />
@@ -243,6 +259,10 @@
     <wsdl:operation name="GetHaushaltskategorien">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetHaushaltskategorien" message="tns:IService1_GetHaushaltskategorien_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetHaushaltskategorienResponse" message="tns:IService1_GetHaushaltskategorien_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetHaushaltsunterkategorien">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetHaushaltsunterkategorien" message="tns:IService1_GetHaushaltsunterkategorien_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetHaushaltsunterkategorienResponse" message="tns:IService1_GetHaushaltsunterkategorien_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAuswertung">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAuswertung" message="tns:IService1_GetAuswertung_InputMessage" />
@@ -359,6 +379,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetEinheiten">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetEinheiten" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetVarVerbrauchKat">
       <soap:operation soapAction="http://tempuri.org/IService1/GetVarVerbrauchKat" style="document" />
       <wsdl:input>
@@ -451,6 +480,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetHaushaltskategorien">
       <soap:operation soapAction="http://tempuri.org/IService1/GetHaushaltskategorien" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetHaushaltsunterkategorien">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetHaushaltsunterkategorien" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

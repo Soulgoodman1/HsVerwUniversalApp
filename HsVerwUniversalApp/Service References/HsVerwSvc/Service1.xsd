@@ -95,6 +95,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Zahlungsrythmus" nillable="true" type="tns:Zahlungsrythmus" />
+  <xs:complexType name="ArrayOfEinheit">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Einheit" nillable="true" type="tns:Einheit" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfEinheit" nillable="true" type="tns:ArrayOfEinheit" />
+  <xs:complexType name="Einheit">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Einheit" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Einheit" nillable="true" type="tns:Einheit" />
   <xs:complexType name="ArrayOfVarVerbrauchKat">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="VarVerbrauchKat" nillable="true" type="tns:VarVerbrauchKat" />
@@ -121,6 +134,20 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Haushaltskategorie" nillable="true" type="tns:Haushaltskategorie" />
+  <xs:complexType name="ArrayOfHaushaltsunterkategorie">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Haushaltsunterkategorie" nillable="true" type="tns:Haushaltsunterkategorie" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfHaushaltsunterkategorie" nillable="true" type="tns:ArrayOfHaushaltsunterkategorie" />
+  <xs:complexType name="Haushaltsunterkategorie">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Haushaltsunterkategorie" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ID" type="xs:long" />
+      <xs:element minOccurs="0" name="KategorieID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Haushaltsunterkategorie" nillable="true" type="tns:Haushaltsunterkategorie" />
   <xs:complexType name="Auswertung">
     <xs:sequence>
       <xs:element minOccurs="0" name="AusgabenFixproJahr" nillable="true" type="xs:string" />
