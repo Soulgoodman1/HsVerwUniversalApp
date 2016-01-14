@@ -158,9 +158,6 @@
     <Compile Include="AddIncome.xaml.vb">
       <DependentUpon>AddIncome.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AddExpense.xaml.vb">
-      <DependentUpon>AddExpense.xaml</DependentUpon>
-    </Compile>
     <Compile Include="App.xaml.vb">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
@@ -214,10 +211,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="AddIncome.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="AddExpense.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
