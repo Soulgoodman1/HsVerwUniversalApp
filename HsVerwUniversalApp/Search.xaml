@@ -9,6 +9,7 @@
     <Page.BottomAppBar>
         <CommandBar IsOpen="False" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Visibility="Visible">
             <AppBarButton Name="btn_filtern"  Icon="Filter" Label="Filtern" Click="filtern" Visibility="Visible"/>
+            <AppBarButton Name="btn_reset"  Icon="Cancel" Label="Reset" Click="reset" Visibility="Visible"/>
         </CommandBar>
     </Page.BottomAppBar>
     <Grid>
@@ -31,9 +32,17 @@
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Suche" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" FontSize="40"/>
-        <TextBlock Name="txt_von"  Text="Von" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3"  FontSize="20" VerticalAlignment="Bottom"/>
-        <DatePicker Name="ctrl_datepickervon"  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3"  FontSize="20" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
-        <TextBlock Name="txt_bis" Text="Bis" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3"  FontSize="20" VerticalAlignment="Bottom"/>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" VerticalAlignment="Bottom">
+            <TextBlock Name="txt_von"  Text="Von" FontSize="20" Margin="0,0,20,0" />
+            <CheckBox Name="opt_datepickervon" IsChecked="{x:Null}" Checked="setVisibilitydatevon" Unchecked="unsetVisibilitydatevon"/>
+        </StackPanel>
+
+        <DatePicker  Name="ctrl_datepickervon"  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3"  FontSize="20" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
+        <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" VerticalAlignment="Bottom">
+            <TextBlock Name="txt_bis" Text="Bis" FontSize="20"  Margin="0,0,20,0" />
+            <CheckBox Name="opt_datepickerbis" IsChecked="{x:Null}" Checked="setVisibilitydatebis" Unchecked="unsetVisibilitydatebis"/>
+        </StackPanel>
+        
         <DatePicker Name="ctrl_datepickerbis"  Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3"  FontSize="20" HorizontalAlignment="Stretch" VerticalAlignment="Top"/>
         <TextBlock Name="txt_kategorie" Text="Kategorie" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3"  FontSize="20" VerticalAlignment="Bottom"/>
         <ComboBox Name="cbo_haushaltskategorie" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="3" FontSize="20" VerticalAlignment="Top">

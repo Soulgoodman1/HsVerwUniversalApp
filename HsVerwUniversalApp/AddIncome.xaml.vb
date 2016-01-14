@@ -55,7 +55,6 @@ Public NotInheritable Class AddIncome
 
         MyBase.OnNavigatedTo(e)
         Dim vlo_client As New HsVerwSvc.Service1Client
-        ' Dim _hhrhtresult As Task(Of ObservableCollection(Of HsVerwSvc.Zahlungsrythmus)) = vlo_client.GetZahlungsrythmenAsync
 
         Dim _hhrhtresult As ObservableCollection(Of HsVerwSvc.Zahlungsrythmus) = Await vlo_client.GetZahlungsrythmenAsync
 

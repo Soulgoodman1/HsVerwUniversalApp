@@ -15,27 +15,6 @@ Public NotInheritable Class AddExpense
 
         ' Fügen Sie Initialisierungen nach dem InitializeComponent()-Aufruf hinzu.
 
-        Dim vlo_client As New HsVerwSvc.Service1Client
-        Dim _hhkatresult As Task(Of ObservableCollection(Of HsVerwSvc.Haushaltskategorie)) = vlo_client.GetHaushaltskategorienAsync
-
-        cbo_ausgabenart.ItemsSource = _hhkatresult.Result.Where(Function(vlo_ausgabe) (vlo_ausgabe.ID = 2 Or vlo_ausgabe.ID = 5))
-        cbo_ausgabenart.SelectedValuePath = "ID"
-        cbo_ausgabenart.SelectedIndex = 0
-
-        Dim _hhkrhtresult As Task(Of ObservableCollection(Of HsVerwSvc.Zahlungsrythmus)) = vlo_client.GetZahlungsrythmenAsync
-
-        cbo_zahlungsrythmus.ItemsSource = _hhkrhtresult.Result
-        cbo_zahlungsrythmus.SelectedValuePath = "ID"
-        cbo_zahlungsrythmus.SelectedIndex = 0
-
-        Dim _hhkreinhresult As Task(Of ObservableCollection(Of HsVerwSvc.Einheit)) = vlo_client.GetEinheitenAsync
-
-        cbo_einheit.ItemsSource = _hhkreinhresult.Result
-        cbo_einheit.SelectedValuePath = "ID"
-        cbo_einheit.SelectedIndex = 0
-
-        vlo_client = Nothing
-
     End Sub
 
     Private Sub speichernAusgabe(sender As Object, e As RoutedEventArgs)
@@ -68,6 +47,34 @@ Public NotInheritable Class AddExpense
 
         vlo_zahlungsrythmus = Nothing
         vlo_ausgabe = Nothing
+        vlo_client = Nothing
+
+    End Sub
+
+    Protected Overrides Async Sub OnNavigatedTo(e As NavigationEventArgs)
+
+        Dim vlo_client As New HsVerwSvc.Service1Client
+
+        MyBase.OnNavigatedTo(e)
+
+        Dim _hhkatresult As ObservableCollection(Of HsVerwSvc.Haushaltskategorie) = Await vlo_client.GetHaushaltskategorienAsync
+
+        cbo_ausgabenart.ItemsSource = _hhkatresult.Where(Function(vlo_ausgabe) (vlo_ausgabe.ID = 2 Or vlo_ausgabe.ID = 5))
+        cbo_ausgabenart.SelectedValuePath = "ID"
+        cbo_ausgabenart.SelectedIndex = 0
+
+        Dim _hhrhtresult As ObservableCollection(Of HsVerwSvc.Zahlungsrythmus) = Await vlo_client.GetZahlungsrythmenAsync
+
+        cbo_zahlungsrythmus.ItemsSource = _hhrhtresult
+        cbo_zahlungsrythmus.SelectedValuePath = "ID"
+        cbo_zahlungsrythmus.SelectedIndex = 0
+
+        Dim _hheinhresult As ObservableCollection(Of HsVerwSvc.Einheit) = Await vlo_client.GetEinheitenAsync
+
+        cbo_einheit.ItemsSource = _hheinhresult
+        cbo_einheit.SelectedValuePath = "ID"
+        cbo_einheit.SelectedIndex = 0
+
         vlo_client = Nothing
 
     End Sub
