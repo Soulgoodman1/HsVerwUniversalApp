@@ -152,6 +152,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddExpense.xaml.vb">
+      <DependentUpon>AddExpense.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Search.xaml.vb">
       <DependentUpon>Search.xaml</DependentUpon>
     </Compile>
@@ -206,6 +209,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="AddExpense.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Search.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
