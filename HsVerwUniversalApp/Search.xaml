@@ -12,7 +12,7 @@
             <AppBarButton Name="btn_reset"  Icon="Cancel" Label="Reset" Click="reset" Visibility="Visible"/>
         </CommandBar>
     </Page.BottomAppBar>
-    <Grid>
+    <Grid RequestedTheme="Dark" Background="Black">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="5*"/>
             <ColumnDefinition Width="25*"/>

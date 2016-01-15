@@ -123,11 +123,11 @@ Public NotInheritable Class Search
     End Sub
 
     Private Sub setVisibilitydatebis()
-        ctrl_datepickervon.Visibility = Visibility.Visible
+        ctrl_datepickerbis.Visibility = Visibility.Visible
     End Sub
 
     Private Sub unsetVisibilitydatebis()
-        ctrl_datepickervon.Visibility = Visibility.Collapsed
+        ctrl_datepickerbis.Visibility = Visibility.Collapsed
     End Sub
 
 End Class
