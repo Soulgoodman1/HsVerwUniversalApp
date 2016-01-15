@@ -30,6 +30,7 @@
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Verbrauchsstand: " HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="0"/>
                             <TextBlock Text="{Binding Wert}" HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="0"/>
+                            <TextBlock Text="{Binding Einheit}" HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="5,0,0,0"/>
                         </StackPanel>
                     </StackPanel>
                 </DataTemplate>

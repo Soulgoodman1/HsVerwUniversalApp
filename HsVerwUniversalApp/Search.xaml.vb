@@ -9,6 +9,8 @@
 Public NotInheritable Class Search
     Inherits Page
 
+    Private vmo_suchtyp As String = ""
+
     Public Sub New()
         ' Dieser Aufruf ist für den Designer erforderlich.
         InitializeComponent()
@@ -36,23 +38,42 @@ Public NotInheritable Class Search
             vlo_searchparameter.EndDatum = ctrl_datepickerbis.Date.Day & "." & ctrl_datepickerbis.Date.Month & "." & ctrl_datepickerbis.Date.Year
         End If
 
-        'GoBack über Backstack
-        Frame.Navigate(GetType(ListConsumption), vlo_searchparameter)
+        Select Case vmo_suchtyp
+            Case "Verbrauch"
+                Frame.Navigate(GetType(ListConsumption), vlo_searchparameter)
+
+            Case "Ausgabe"
+                Frame.Navigate(GetType(ListExpense), vlo_searchparameter)
+
+        End Select
 
     End Sub
 
     Public Sub reset()
+        Select Case vmo_suchtyp
+            Case "Verbrauch"
+                opt_datepickerbis.IsChecked = True
+                opt_datepickervon.IsChecked = True
+                ctrl_datepickerbis.Date = DateTimeOffset.Now
+                ctrl_datepickerbis.Date = DateTimeOffset.Now
+                cbo_haushaltsunterkategorie.SelectedIndex = 0
+
+            Case "Ausgabe"
+                cbo_haushaltskategorie.SelectedIndex = 0
+
+        End Select
 
     End Sub
 
     Protected Overrides Async Sub OnNavigatedTo(e As NavigationEventArgs)
 
-        Dim vlo_suchtyp As String = e.Parameter.ToString
+
         Dim vlo_client As New HsVerwSvc.Service1Client
 
         MyBase.OnNavigatedTo(e)
+        vmo_suchtyp = e.Parameter.ToString
 
-        Select Case vlo_suchtyp
+        Select Case vmo_suchtyp
             Case "Verbrauch"
                 txt_kategorie.Visibility = Visibility.Collapsed
                 cbo_haushaltskategorie.Visibility = Visibility.Collapsed

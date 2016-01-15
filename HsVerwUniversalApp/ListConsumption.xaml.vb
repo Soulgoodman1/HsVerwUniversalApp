@@ -23,45 +23,45 @@ Public NotInheritable Class ListConsumption
 
         MyBase.OnNavigatedTo(e)
         Dim vlo_parameter As Object = e.Parameter
-        Dim _hhkatresult As ObservableCollection(Of HsVerwSvc.Verbrauch) = Await vlo_client.GetVerbrauchAsync
+        Dim _hhVerbresult As ObservableCollection(Of HsVerwSvc.Verbrauch) = Await vlo_client.GetVerbrauchAsync
 
         'Prüfen, ob Suchparameter übergeben wurden
 
         If vlo_parameter Is Nothing Then
-            ListviewConsumption.ItemsSource = _hhkatresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > "31.12." & DateTime.Now.Year - 2) And (vlo_verbrauch.Datum < "01.02." & DateTime.Now.Year)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
+            ListviewConsumption.ItemsSource = _hhVerbresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > "31.12." & DateTime.Now.Year - 2) And (vlo_verbrauch.Datum < "01.02." & DateTime.Now.Year)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
         Else
             Dim vlo_searchparam As SearchParam = e.Parameter
 
             If vlo_searchparam.StartDatum <> "" And vlo_searchparam.EndDatum <> "" Then
                 If vlo_searchparam.Unterkategorie <> 0 Then
-                    ListviewConsumption.ItemsSource = _hhkatresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > vlo_searchparam.StartDatum) And (vlo_verbrauch.Datum < vlo_searchparam.EndDatum) And (vlo_verbrauch.HaushaltsunterkategorieID = vlo_searchparam.Unterkategorie)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
+                    ListviewConsumption.ItemsSource = _hhVerbresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > vlo_searchparam.StartDatum) And (vlo_verbrauch.Datum < vlo_searchparam.EndDatum) And (vlo_verbrauch.HaushaltsunterkategorieID = vlo_searchparam.Unterkategorie)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
                 Else
-                    ListviewConsumption.ItemsSource = _hhkatresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > vlo_searchparam.StartDatum) And (vlo_verbrauch.Datum < vlo_searchparam.EndDatum)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
+                    ListviewConsumption.ItemsSource = _hhVerbresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > vlo_searchparam.StartDatum) And (vlo_verbrauch.Datum < vlo_searchparam.EndDatum)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
                 End If
 
             End If
 
             If vlo_searchparam.StartDatum <> "" And vlo_searchparam.EndDatum = "" Then
                 If vlo_searchparam.Unterkategorie <> 0 Then
-                    ListviewConsumption.ItemsSource = _hhkatresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > vlo_searchparam.StartDatum) And (vlo_verbrauch.HaushaltsunterkategorieID = vlo_searchparam.Unterkategorie)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
+                    ListviewConsumption.ItemsSource = _hhVerbresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > vlo_searchparam.StartDatum) And (vlo_verbrauch.HaushaltsunterkategorieID = vlo_searchparam.Unterkategorie)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
                 Else
-                    ListviewConsumption.ItemsSource = _hhkatresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > vlo_searchparam.StartDatum)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
+                    ListviewConsumption.ItemsSource = _hhVerbresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > vlo_searchparam.StartDatum)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
                 End If
             End If
 
             If vlo_searchparam.StartDatum = "" And vlo_searchparam.EndDatum <> "" Then
                 If vlo_searchparam.Unterkategorie <> 0 Then
-                    ListviewConsumption.ItemsSource = _hhkatresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum < vlo_searchparam.EndDatum) And (vlo_verbrauch.HaushaltsunterkategorieID = vlo_searchparam.Unterkategorie)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
+                    ListviewConsumption.ItemsSource = _hhVerbresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum < vlo_searchparam.EndDatum) And (vlo_verbrauch.HaushaltsunterkategorieID = vlo_searchparam.Unterkategorie)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
                 Else
-                    ListviewConsumption.ItemsSource = _hhkatresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum < vlo_searchparam.EndDatum)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
+                    ListviewConsumption.ItemsSource = _hhVerbresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum < vlo_searchparam.EndDatum)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
                 End If
             End If
 
             If vlo_searchparam.StartDatum = "" And vlo_searchparam.EndDatum = "" Then
                 If vlo_searchparam.Unterkategorie <> 0 Then
-                    ListviewConsumption.ItemsSource = _hhkatresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.HaushaltsunterkategorieID = vlo_searchparam.Unterkategorie)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
+                    ListviewConsumption.ItemsSource = _hhVerbresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.HaushaltsunterkategorieID = vlo_searchparam.Unterkategorie)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
                 Else
-                    ListviewConsumption.ItemsSource = _hhkatresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > "31.12." & DateTime.Now.Year - 2) And (vlo_verbrauch.Datum < "01.02." & DateTime.Now.Year)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
+                    ListviewConsumption.ItemsSource = _hhVerbresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > "31.12." & DateTime.Now.Year - 2) And (vlo_verbrauch.Datum < "01.02." & DateTime.Now.Year)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
                 End If
             End If
 
@@ -89,10 +89,10 @@ Public NotInheritable Class ListConsumption
 
         Next
 
-        Dim _hhkatresult As Task(Of ObservableCollection(Of HsVerwSvc.Verbrauch)) = vlo_client.GetVerbrauchAsync
+        Dim _hhVerbresult As Task(Of ObservableCollection(Of HsVerwSvc.Verbrauch)) = vlo_client.GetVerbrauchAsync
 
         ListviewConsumption.ItemsSource = Nothing
-        ListviewConsumption.ItemsSource = _hhkatresult.Result.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > "31.12." & DateTime.Now.Year - 2) And (vlo_verbrauch.Datum < "01.02." & DateTime.Now.Year)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
+        ListviewConsumption.ItemsSource = _hhVerbresult.Result.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > "31.12." & DateTime.Now.Year - 2) And (vlo_verbrauch.Datum < "01.02." & DateTime.Now.Year)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
 
         vlo_verbrauchselected = Nothing
         vlo_client = Nothing

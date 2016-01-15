@@ -33,7 +33,7 @@ Public NotInheritable Class AddExpense
 
             If Not String.IsNullOrEmpty(txt_ausgabeart.Text) Then
 
-                vlo_ausgabe.Ausgabentyp = txt_ausgabeart.Text
+                vlo_ausgabe.Haushaltsunterkategorie = txt_ausgabeart.Text
 
                 Dim _hhsetresult As Task(Of String) = vlo_client.SetAusgabeNewAsync(vlo_ausgabe)
 

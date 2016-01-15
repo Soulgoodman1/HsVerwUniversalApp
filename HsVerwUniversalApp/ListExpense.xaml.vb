@@ -12,12 +12,32 @@ Public NotInheritable Class ListExpense
 
         ' Fügen Sie Initialisierungen nach dem InitializeComponent()-Aufruf hinzu.
 
+    End Sub
+
+    Protected Overrides Async Sub OnNavigatedTo(e As NavigationEventArgs)
 
         Dim vlo_client As New HsVerwSvc.Service1Client
-        Dim _hhkatresult As Task(Of ObservableCollection(Of HsVerwSvc.Ausgabe)) = vlo_client.GetAusgabenAsync
-        Dim vlo_ausgabe As New HsVerwSvc.Ausgabe
 
-        ListviewExpense.ItemsSource = _hhkatresult.Result
+        MyBase.OnNavigatedTo(e)
+        Dim vlo_parameter As Object = e.Parameter
+        Dim _hhAusgresult As ObservableCollection(Of HsVerwSvc.Ausgabe) = Await vlo_client.GetAusgabenAsync
+
+        'Prüfen, ob Suchparameter übergeben wurden
+
+        If vlo_parameter Is Nothing Then
+            ListviewExpense.ItemsSource = _hhAusgresult
+        Else
+            Dim vlo_searchparam As SearchParam = e.Parameter
+
+            If vlo_searchparam.Kategorie <> 0 Then
+                ListviewExpense.ItemsSource = _hhAusgresult.Where(Function(vlo_ausgabe) (vlo_ausgabe.HaushaltskategorieID = vlo_searchparam.Kategorie)).OrderBy(Function(vlo_ausgabe) vlo_ausgabe.Haushaltsunterkategorie)
+            Else
+                ListviewExpense.ItemsSource = _hhAusgresult
+            End If
+
+        End If
+
+        vlo_client = Nothing
 
     End Sub
 

@@ -50,7 +50,7 @@
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" HorizontalAlignment="Stretch">
-                        <TextBlock Text="{Binding Einheit}" MaxHeight="80" FontSize="20" TextTrimming="WordEllipsis" HorizontalAlignment="Left" />
+                        <TextBlock Text="{Binding EinheitMember}" MaxHeight="80" FontSize="20" TextTrimming="WordEllipsis" HorizontalAlignment="Left" />
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
