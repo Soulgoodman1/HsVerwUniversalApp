@@ -885,7 +885,7 @@ Namespace HsVerwSvc
         Function GetVarVerbrauchKatAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.VarVerbrauchKat))
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/SetVerbrauch", ReplyAction:="http://tempuri.org/IService1/SetVerbrauchResponse")>  _
-        Function SetVerbrauchAsync(ByVal vlo_verbrauch As HsVerwSvc.Verbrauch) As System.Threading.Tasks.Task(Of Boolean)
+        Function SetVerbrauchAsync(ByVal vlo_verbrauch As HsVerwSvc.Verbrauch) As System.Threading.Tasks.Task(Of String)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/SetAusgabe", ReplyAction:="http://tempuri.org/IService1/SetAusgabeResponse")>  _
         Function SetAusgabeAsync(ByVal vlo_ausgabe As HsVerwSvc.Ausgabe) As System.Threading.Tasks.Task(Of String)
@@ -1027,7 +1027,7 @@ Namespace HsVerwSvc
             Return MyBase.Channel.GetVarVerbrauchKatAsync
         End Function
         
-        Public Function SetVerbrauchAsync(ByVal vlo_verbrauch As HsVerwSvc.Verbrauch) As System.Threading.Tasks.Task(Of Boolean) Implements HsVerwSvc.IService1.SetVerbrauchAsync
+        Public Function SetVerbrauchAsync(ByVal vlo_verbrauch As HsVerwSvc.Verbrauch) As System.Threading.Tasks.Task(Of String) Implements HsVerwSvc.IService1.SetVerbrauchAsync
             Return MyBase.Channel.SetVerbrauchAsync(vlo_verbrauch)
         End Function
         

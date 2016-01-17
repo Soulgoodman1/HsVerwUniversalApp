@@ -42,9 +42,9 @@ Public NotInheritable Class EditIncome
 
         MyBase.OnNavigatedTo(e)
         Dim vlo_client As New HsVerwSvc.Service1Client
-        Dim vlo_einnhameid As Long = CLng(e.Parameter)
+        Dim vlo_einnahmeid As Long = CLng(e.Parameter)
 
-        Dim _hheinhresult As HsVerwSvc.Einnahme = Await vlo_client.GetEinnahmebyIDAsync(vlo_einnhameid)
+        Dim _hheinhresult As HsVerwSvc.Einnahme = Await vlo_client.GetEinnahmebyIDAsync(vlo_einnahmeid)
         Me.DataContext = _hheinhresult
 
         Dim _hhrhtresult As ObservableCollection(Of HsVerwSvc.Zahlungsrythmus) = Await vlo_client.GetZahlungsrythmenAsync

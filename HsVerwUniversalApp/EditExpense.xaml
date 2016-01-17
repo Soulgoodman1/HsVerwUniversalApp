@@ -27,16 +27,8 @@
             <RowDefinition Height="10*"/>
             <RowDefinition Height="40*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Neue Ausgabe" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" FontSize="40"/>
-        <ComboBox Name="cbo_ausgabenart" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Background="Red" FontSize="20" VerticalAlignment="Bottom">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" HorizontalAlignment="Stretch">
-                        <TextBlock Text="{Binding HaushaltskategorieMember}" MaxHeight="80" FontSize="20" TextTrimming="WordEllipsis" HorizontalAlignment="Left" />
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
+        <TextBlock Text="Ändere Ausgabe" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" FontSize="40"/>
+        <TextBox Name="txt_kategorie" Text="{Binding Haushaltskategorie}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" FontSize="20"  Background="Red" VerticalAlignment="Center" IsEnabled="False"/>
         <ComboBox Name="cbo_zahlungsrythmus" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Background="Red" FontSize="20" VerticalAlignment="Center">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -46,16 +38,8 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <ComboBox Name="cbo_einheit" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" Background="Red" FontSize="20" VerticalAlignment="Center">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" HorizontalAlignment="Stretch">
-                        <TextBlock Text="{Binding EinheitMember}" MaxHeight="80" FontSize="20" TextTrimming="WordEllipsis" HorizontalAlignment="Left" />
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-        <TextBox Name="txt_ausgabeart" Text="Typ der Ausgabe eingeben" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" FontSize="20" Background="Red" VerticalAlignment="Center"/>
-        <TextBox Name="txt_wert" Text="Wert eingeben" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" FontSize="20" Background="Red" VerticalAlignment="Top"/>
+        <TextBox Name="txt_einheit" Text="{Binding Einheit}" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3"  FontSize="20"  Background="Red" VerticalAlignment="Center" IsEnabled="False"/>
+        <TextBox Name="txt_ausgabeart" Text="{Binding Haushaltsunterkategorie}" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" FontSize="20" Background="Red" VerticalAlignment="Center"/>
+        <TextBox Name="txt_wert" Text="{Binding Wert}" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" FontSize="20" Background="Red" VerticalAlignment="Center"/>
     </Grid>
 </Page>

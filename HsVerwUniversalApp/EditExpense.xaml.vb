@@ -20,29 +20,18 @@ Public NotInheritable Class EditExpense
     Private Sub speichernAusgabe(sender As Object, e As RoutedEventArgs)
 
         Dim vlo_client As New HsVerwSvc.Service1Client
-        Dim vlo_ausgabe As New HsVerwSvc.Ausgabe
+        Dim vlo_ausgabe As HsVerwSvc.Ausgabe = CType(Me.DataContext, HsVerwSvc.Ausgabe)
         Dim vlo_zahlungsrythmus As HsVerwSvc.Zahlungsrythmus = cbo_zahlungsrythmus.SelectedItem
 
+        'mögliche Änderungen
         vlo_ausgabe.ZahlungsrythmusID = cbo_zahlungsrythmus.SelectedValue
-        vlo_ausgabe.EinheitID = cbo_einheit.SelectedValue
-        vlo_ausgabe.HaushaltskategorieID = cbo_ausgabenart.SelectedValue
+        vlo_ausgabe.Wert = txt_wert.Text
+        vlo_ausgabe.Haushaltsunterkategorie = txt_ausgabeart.Text
 
-        If Double.TryParse(txt_wert.Text, New Double) Then
+        Dim _hhsetresult As Task(Of String) = vlo_client.SetAusgabeAsync(vlo_ausgabe)
 
-            vlo_ausgabe.Wert = txt_wert.Text
-
-            If Not String.IsNullOrEmpty(txt_ausgabeart.Text) Then
-
-                vlo_ausgabe.Haushaltsunterkategorie = txt_ausgabeart.Text
-
-                Dim _hhsetresult As Task(Of String) = vlo_client.SetAusgabeNewAsync(vlo_ausgabe)
-
-                If _hhsetresult.Result <> "" Then
-                    Frame.GoBack()
-                End If
-
-            End If
-
+        If _hhsetresult.Result <> "" Then
+            Frame.GoBack()
         End If
 
         vlo_zahlungsrythmus = Nothing
@@ -53,27 +42,20 @@ Public NotInheritable Class EditExpense
 
     Protected Overrides Async Sub OnNavigatedTo(e As NavigationEventArgs)
 
-        Dim vlo_client As New HsVerwSvc.Service1Client
-
         MyBase.OnNavigatedTo(e)
 
-        Dim _hhkatresult As ObservableCollection(Of HsVerwSvc.Haushaltskategorie) = Await vlo_client.GetHaushaltskategorienAsync
+        Dim vlo_client As New HsVerwSvc.Service1Client
+        Dim vlo_ausgabeid As Long = CLng(e.Parameter)
 
-        cbo_ausgabenart.ItemsSource = _hhkatresult.Where(Function(vlo_ausgabe) (vlo_ausgabe.ID = 2 Or vlo_ausgabe.ID = 5))
-        cbo_ausgabenart.SelectedValuePath = "ID"
-        cbo_ausgabenart.SelectedIndex = 0
+        Dim _hhausgresult As HsVerwSvc.Ausgabe = Await vlo_client.GetAusgabebyIDAsync(vlo_ausgabeid)
+        Me.DataContext = _hhausgresult
 
         Dim _hhrhtresult As ObservableCollection(Of HsVerwSvc.Zahlungsrythmus) = Await vlo_client.GetZahlungsrythmenAsync
 
         cbo_zahlungsrythmus.ItemsSource = _hhrhtresult
         cbo_zahlungsrythmus.SelectedValuePath = "ID"
         cbo_zahlungsrythmus.SelectedIndex = 0
-
-        Dim _hheinhresult As ObservableCollection(Of HsVerwSvc.Einheit) = Await vlo_client.GetEinheitenAsync
-
-        cbo_einheit.ItemsSource = _hheinhresult
-        cbo_einheit.SelectedValuePath = "ID"
-        cbo_einheit.SelectedIndex = 0
+        cbo_zahlungsrythmus.SelectedValue = _hhausgresult.ZahlungsrythmusID
 
         vlo_client = Nothing
 

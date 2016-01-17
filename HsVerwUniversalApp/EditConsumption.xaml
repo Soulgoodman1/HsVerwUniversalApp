@@ -25,7 +25,7 @@
             <RowDefinition Height="10*"/>
             <RowDefinition Height="60*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Neuer Verbrauch" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" FontSize="40"/>
+        <TextBlock Text="Ändern Verbrauch" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" FontSize="40"/>
         <ComboBox Name="cbo_verbrauchstyp" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Background="Gold" FontSize="20" VerticalAlignment="Bottom">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
@@ -35,7 +35,8 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <DatePicker Name="ctrl_datepicker"  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3"  Background="Gold" FontSize="20" HorizontalAlignment="Stretch" />
-        <TextBox Name="txt_wert" Text="Wert eingeben" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" FontSize="20" Background="Gold" VerticalAlignment="Top"/>
+        <TextBox Name="txt_einheit" Text="{Binding Einheit}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3"  FontSize="20"  Background="Gold" VerticalAlignment="Center" IsEnabled="False"/>
+        <DatePicker Name="ctrl_datepicker" Date="{Binding Datum}" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3"  Background="Gold" FontSize="20" HorizontalAlignment="Stretch" />
+        <TextBox Name="txt_wert" Text="{Binding Wert}" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" FontSize="20" Background="Gold" VerticalAlignment="Top"/>
     </Grid>
 </Page>
