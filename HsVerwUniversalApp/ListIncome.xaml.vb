@@ -20,4 +20,35 @@ Public NotInheritable Class ListIncome
 
     End Sub
 
+
+    Private Sub hinzufuegenEinnahme(sender As Object, e As RoutedEventArgs)
+
+        Frame.Navigate(GetType(AddIncome))
+
+    End Sub
+
+    Private Sub loeschenEinnahme(sender As Object, e As RoutedEventArgs)
+
+        Dim vlo_client As New HsVerwSvc.Service1Client
+        Dim vlo_einnahme As HsVerwSvc.Einnahme
+
+
+        For Each vlo_einnahme In ListviewIncome.SelectedItems
+
+            Dim _hhsetresult As Task(Of Boolean) = vlo_client.DeleteEinnahmeAsync(vlo_einnahme)
+
+        Next
+
+        vlo_einnahme = Nothing
+        vlo_client = Nothing
+
+    End Sub
+
+    Private Sub aendernEinnahme(sender As Object, e As RoutedEventArgs)
+
+        Frame.Navigate(GetType(EditIncome), CType(ListviewIncome.SelectedItems(0), HsVerwSvc.Einnahme).ID)
+
+    End Sub
+
+
 End Class

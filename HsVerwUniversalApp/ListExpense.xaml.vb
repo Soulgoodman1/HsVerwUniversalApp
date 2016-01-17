@@ -66,6 +66,8 @@ Public NotInheritable Class ListExpense
 
     Private Sub aendernAusgabe(sender As Object, e As RoutedEventArgs)
 
+        Frame.Navigate(GetType(EditExpense), CType(ListviewExpense.SelectedItems(0), HsVerwSvc.Ausgabe).ID)
+
     End Sub
 
     Private Sub suchenAusgabe(sender As Object, e As RoutedEventArgs)

@@ -152,8 +152,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditConsumption.xaml.vb">
+      <DependentUpon>EditConsumption.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditExpense.xaml.vb">
+      <DependentUpon>EditExpense.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddExpense.xaml.vb">
       <DependentUpon>AddExpense.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditIncome.xaml.vb">
+      <DependentUpon>EditIncome.xaml</DependentUpon>
     </Compile>
     <Compile Include="Search.xaml.vb">
       <DependentUpon>Search.xaml</DependentUpon>
@@ -209,9 +218,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="EditConsumption.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="EditExpense.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="AddExpense.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditIncome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Search.xaml">
       <Generator>MSBuild:Compile</Generator>

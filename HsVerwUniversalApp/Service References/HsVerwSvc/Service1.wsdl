@@ -163,6 +163,12 @@
   <wsdl:message name="IService1_GetAuswertung_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetAuswertungResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetEinnahmebyID_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetEinnahmebyID" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetEinnahmebyID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetEinnahmebyIDResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetVerbrauch">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVerbrauch" message="tns:IService1_GetVerbrauch_InputMessage" />
@@ -267,6 +273,10 @@
     <wsdl:operation name="GetAuswertung">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAuswertung" message="tns:IService1_GetAuswertung_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAuswertungResponse" message="tns:IService1_GetAuswertung_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetEinnahmebyID">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetEinnahmebyID" message="tns:IService1_GetEinnahmebyID_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetEinnahmebyIDResponse" message="tns:IService1_GetEinnahmebyID_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -498,6 +508,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetAuswertung">
       <soap:operation soapAction="http://tempuri.org/IService1/GetAuswertung" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetEinnahmebyID">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetEinnahmebyID" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

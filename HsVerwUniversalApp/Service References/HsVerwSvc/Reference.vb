@@ -919,6 +919,9 @@ Namespace HsVerwSvc
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/GetAuswertung", ReplyAction:="http://tempuri.org/IService1/GetAuswertungResponse")>  _
         Function GetAuswertungAsync() As System.Threading.Tasks.Task(Of HsVerwSvc.Auswertung)
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/GetEinnahmebyID", ReplyAction:="http://tempuri.org/IService1/GetEinnahmebyIDResponse")>  _
+        Function GetEinnahmebyIDAsync(ByVal ID As Long) As System.Threading.Tasks.Task(Of HsVerwSvc.Einnahme)
     End Interface
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")>  _
@@ -1070,6 +1073,10 @@ Namespace HsVerwSvc
         
         Public Function GetAuswertungAsync() As System.Threading.Tasks.Task(Of HsVerwSvc.Auswertung) Implements HsVerwSvc.IService1.GetAuswertungAsync
             Return MyBase.Channel.GetAuswertungAsync
+        End Function
+        
+        Public Function GetEinnahmebyIDAsync(ByVal ID As Long) As System.Threading.Tasks.Task(Of HsVerwSvc.Einnahme) Implements HsVerwSvc.IService1.GetEinnahmebyIDAsync
+            Return MyBase.Channel.GetEinnahmebyIDAsync(ID)
         End Function
         
         Public Overridable Function OpenAsync() As System.Threading.Tasks.Task

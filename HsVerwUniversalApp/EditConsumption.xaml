@@ -1,0 +1,41 @@
+﻿<Page
+    x:Class="HsVerwUniversalApp.EditConsumption"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HsVerwUniversalApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <Page.BottomAppBar>
+        <CommandBar IsOpen="False" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Visibility="Visible">
+            <AppBarButton Name="btn_speichern"  Icon="Save" Label="Speichern" Click="speichernVerbrauch" Visibility="Visible"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+    <Grid Background="Goldenrod">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="60*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Neuer Verbrauch" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" FontSize="40"/>
+        <ComboBox Name="cbo_verbrauchstyp" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Background="Gold" FontSize="20" VerticalAlignment="Bottom">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" HorizontalAlignment="Stretch">
+                        <TextBlock Text="{Binding Haushaltsunterkategorie}" MaxHeight="80" FontSize="20" TextTrimming="WordEllipsis" HorizontalAlignment="Left" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <DatePicker Name="ctrl_datepicker"  Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3"  Background="Gold" FontSize="20" HorizontalAlignment="Stretch" />
+        <TextBox Name="txt_wert" Text="Wert eingeben" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" FontSize="20" Background="Gold" VerticalAlignment="Top"/>
+    </Grid>
+</Page>

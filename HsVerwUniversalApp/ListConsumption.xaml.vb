@@ -101,6 +101,8 @@ Public NotInheritable Class ListConsumption
 
     Private Sub aendernVerbrauch(sender As Object, e As RoutedEventArgs)
 
+        Frame.Navigate(GetType(EditConsumption), CType(ListviewConsumption.SelectedItems(0), HsVerwSvc.Verbrauch).ID)
+
     End Sub
 
     Private Sub suchenVerbrauch(sender As Object, e As RoutedEventArgs)

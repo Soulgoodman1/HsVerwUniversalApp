@@ -6,9 +6,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
+    <Page.BottomAppBar>
+        <CommandBar IsOpen="False" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Visibility="Visible">
+            <AppBarButton Name="btn_hinzufuegenEinnahme"  Icon="Add" Label="Hinzufügen" Click="hinzufuegenEinnahme" Visibility="Visible"/>
+            <AppBarButton Name="btn_loeschenEinnahme"  Icon="Delete" Label="Löschen" Click="loeschenEinnahme" Visibility="Visible"/>
+            <AppBarButton Name="btn_aendernEinnahme"  Icon="Edit" Label="Ändern" Click="aendernEinnahme" Visibility="Visible"/>
+        </CommandBar>
+    </Page.BottomAppBar>
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <ListView Name="ListviewIncome" ItemsSource="{Binding}" Background="DarkGreen">
+        <ListView Name="ListviewIncome" ItemsSource="{Binding}" Background="DarkGreen" SelectionMode="Multiple" IsMultiSelectCheckBoxEnabled="True">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" VerticalAlignment="Center" Width="300" HorizontalAlignment="Left" Margin="10,0,0,0">

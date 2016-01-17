@@ -347,4 +347,18 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetEinnahmebyID">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ID" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetEinnahmebyIDResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="GetEinnahmebyIDResult" nillable="true" type="q27:Einnahme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
