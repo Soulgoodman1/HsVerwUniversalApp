@@ -24,7 +24,8 @@
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
-            <RowDefinition Height="50*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="40*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Ändere Einnahme" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" FontSize="40"/>
         <ComboBox Name="cbo_zahlungsrythmus" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Background="Green" FontSize="20" VerticalAlignment="Bottom">
@@ -39,5 +40,6 @@
         <TextBox Name="txt_einheit" Text="{Binding Einheit}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3"  FontSize="20"  Background="Green" VerticalAlignment="Center" IsEnabled="False"/>
         <TextBox Name="txt_einnahmeart" Text="{Binding Haushaltsunterkategorie}" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" FontSize="20" Background="Green" VerticalAlignment="Center"/>
         <TextBox Name="txt_wert" Text="{Binding Wert}" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" FontSize="20" Background="Green" VerticalAlignment="Center"/>
+        <TextBox Name="txt_bemerkung"  Text="{Binding Bemerkung}" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" TextWrapping="Wrap" Background="Green"  HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="20"/>
     </Grid>
 </Page>

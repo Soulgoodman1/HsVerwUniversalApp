@@ -26,6 +26,7 @@ Public NotInheritable Class AddIncome
         vlo_einnahme.ZahlungsrythmusID = cbo_zahlungsrythmus.SelectedValue
         vlo_einnahme.EinheitID = cbo_einheit.SelectedValue
         vlo_einnahme.HaushaltskategorieID = 3
+        vlo_einnahme.Bemerkung = txt_bemerkung.Text
 
         If Double.TryParse(txt_wert.Text, New Double) Then
 

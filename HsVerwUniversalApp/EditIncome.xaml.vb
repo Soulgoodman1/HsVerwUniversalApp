@@ -26,6 +26,7 @@ Public NotInheritable Class EditIncome
         vlo_einnahme.ZahlungsrythmusID = cbo_zahlungsrythmus.SelectedValue
         vlo_einnahme.Wert = txt_wert.Text
         vlo_einnahme.Haushaltsunterkategorie = txt_einnahmeart.Text
+        vlo_einnahme.Bemerkung = txt_bemerkung.Text
 
         Dim _hhsetresult As Task(Of String) = vlo_client.SetEinnahmeAsync(vlo_einnahme)
 

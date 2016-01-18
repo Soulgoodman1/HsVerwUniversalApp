@@ -18,6 +18,7 @@
   <xs:element name="Verbrauch" nillable="true" type="tns:Verbrauch" />
   <xs:complexType name="IService1.Basis">
     <xs:sequence>
+      <xs:element minOccurs="0" name="Bemerkung" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Datum" type="xs:dateTime" />
       <xs:element minOccurs="0" name="Einheit" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="EinheitID" type="xs:long" />

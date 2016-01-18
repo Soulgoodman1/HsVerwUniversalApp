@@ -27,6 +27,7 @@ Public NotInheritable Class EditExpense
         vlo_ausgabe.ZahlungsrythmusID = cbo_zahlungsrythmus.SelectedValue
         vlo_ausgabe.Wert = txt_wert.Text
         vlo_ausgabe.Haushaltsunterkategorie = txt_ausgabeart.Text
+        vlo_ausgabe.Bemerkung = txt_bemerkung.Text
 
         Dim _hhsetresult As Task(Of String) = vlo_client.SetAusgabeAsync(vlo_ausgabe)
 

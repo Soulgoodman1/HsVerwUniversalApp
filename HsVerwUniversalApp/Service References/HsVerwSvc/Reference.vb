@@ -50,6 +50,8 @@ Namespace HsVerwSvc
         Inherits Object
         Implements System.ComponentModel.INotifyPropertyChanged
         
+        Private BemerkungField As String
+        
         Private DatumField As Date
         
         Private EinheitField As String
@@ -73,6 +75,19 @@ Namespace HsVerwSvc
         Private ZahlungsrythmusIDField As Long
         
         Private ZahlungsrythmusfaktorField As Long
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property Bemerkung() As String
+            Get
+                Return Me.BemerkungField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.BemerkungField, value) <> true) Then
+                    Me.BemerkungField = value
+                    Me.RaisePropertyChanged("Bemerkung")
+                End If
+            End Set
+        End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
         Public Property Datum() As Date

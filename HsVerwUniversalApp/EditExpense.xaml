@@ -25,7 +25,8 @@
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
-            <RowDefinition Height="40*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="30*"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Ändere Ausgabe" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" FontSize="40"/>
         <TextBox Name="txt_kategorie" Text="{Binding Haushaltskategorie}" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" FontSize="20"  Background="Red" VerticalAlignment="Center" IsEnabled="False"/>
@@ -41,5 +42,6 @@
         <TextBox Name="txt_einheit" Text="{Binding Einheit}" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3"  FontSize="20"  Background="Red" VerticalAlignment="Center" IsEnabled="False"/>
         <TextBox Name="txt_ausgabeart" Text="{Binding Haushaltsunterkategorie}" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" FontSize="20" Background="Red" VerticalAlignment="Center"/>
         <TextBox Name="txt_wert" Text="{Binding Wert}" Grid.Column="1" Grid.Row="5" Grid.ColumnSpan="3" FontSize="20" Background="Red" VerticalAlignment="Center"/>
+        <TextBox Name="txt_bemerkung"  Text="{Binding Bemerkung}" Grid.Column="1" Grid.Row="6" Grid.ColumnSpan="3" TextWrapping="Wrap" Background="Red"  HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="20"/>
     </Grid>
 </Page>

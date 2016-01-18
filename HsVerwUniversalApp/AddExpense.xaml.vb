@@ -26,6 +26,7 @@ Public NotInheritable Class AddExpense
         vlo_ausgabe.ZahlungsrythmusID = cbo_zahlungsrythmus.SelectedValue
         vlo_ausgabe.EinheitID = cbo_einheit.SelectedValue
         vlo_ausgabe.HaushaltskategorieID = cbo_ausgabenart.SelectedValue
+        vlo_ausgabe.Bemerkung = txt_bemerkung.Text
 
         If Double.TryParse(txt_wert.Text, New Double) Then
 
