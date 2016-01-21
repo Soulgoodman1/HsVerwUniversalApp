@@ -24,7 +24,37 @@ Namespace HsVerwSvc
     Partial Public Class Verbrauch
         Inherits HsVerwSvc.IService1Basis
         
+        Private KostenField As Decimal
+        
+        Private MonatField As String
+        
         Private VerbrauchstypField As String
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property Kosten() As Decimal
+            Get
+                Return Me.KostenField
+            End Get
+            Set
+                If (Me.KostenField.Equals(value) <> true) Then
+                    Me.KostenField = value
+                    Me.RaisePropertyChanged("Kosten")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property Monat() As String
+            Get
+                Return Me.MonatField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.MonatField, value) <> true) Then
+                    Me.MonatField = value
+                    Me.RaisePropertyChanged("Monat")
+                End If
+            End Set
+        End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
         Public Property Verbrauchstyp() As String

@@ -10,6 +10,8 @@
     <xs:complexContent mixed="false">
       <xs:extension base="tns:IService1.Basis">
         <xs:sequence>
+          <xs:element minOccurs="0" name="Kosten" type="xs:decimal" />
+          <xs:element minOccurs="0" name="Monat" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="Verbrauchstyp" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>

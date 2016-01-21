@@ -24,10 +24,10 @@ Public NotInheritable Class ListAnalysis
         Dim vlo_client As New HsVerwSvc.Service1Client
         Dim vlo_ausgabeid As Long = CLng(e.Parameter)
 
-        Dim _hhausgresult As HsVerwSvc.Ausgabe = Await vlo_client.GetAusgabebyIDAsync(vlo_ausgabeid)
-        Me.DataContext = _hhausgresult
+        Dim _hhverbrauchresult As ObservableCollection(Of HsVerwSvc.Verbrauch) = Await vlo_client.GetVerbrauchAsync
+        ListviewConsumption.ItemsSource = _hhverbrauchresult
 
-        Dim _hhrhtresult As ObservableCollection(Of HsVerwSvc.Zahlungsrythmus) = Await vlo_client.GetZahlungsrythmenAsync
+        'Dim _hhrhtresult As ObservableCollection(Of HsVerwSvc.Zahlungsrythmus) = Await vlo_client.GetZahlungsrythmenAsync
 
         'cbo_zahlungsrythmus.ItemsSource = _hhrhtresult
         'cbo_zahlungsrythmus.SelectedValuePath = "ID"
