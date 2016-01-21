@@ -1,0 +1,72 @@
+﻿<Page
+    x:Class="HsVerwUniversalApp.ListAnalysis"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HsVerwUniversalApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+    <!--<Page.BottomAppBar>
+        <CommandBar IsOpen="False" HorizontalAlignment="Stretch" HorizontalContentAlignment="Center" Visibility="Visible">
+            <AppBarButton Name="btn_hinzufuegenverbrauch"  Icon="Add" Label="Hinzufügen" Click="hinzufuegenVerbrauch" Visibility="Visible"/>
+            <AppBarButton Name="btn_loeschenVerbrauch"  Icon="Delete" Label="Löschen" Click="loeschenVerbrauch" Visibility="Visible"/>
+            <AppBarButton Name="btn_aendernVerbrauch"  Icon="Edit" Label="Ändern" Click="aendernVerbrauch" Visibility="Visible"/>
+            <AppBarButton Name="btn_suchenVerbrauch"  Icon="Find" Label="Ändern" Click="suchenVerbrauch" Visibility="Visible"/>
+        </CommandBar>
+    </Page.BottomAppBar>-->
+    <Grid Background="CornflowerBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="20*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="70*"/>
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <local:DateConverter x:Key="dateConverter"/>
+        </Grid.Resources>
+        <TextBlock Text="Auswertung" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" FontSize="40"/>
+        <ComboBox Name="cbo_verbrauchsart" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Background="Blue" FontSize="20" VerticalAlignment="Center">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" HorizontalAlignment="Stretch">
+                        <TextBlock Text="{Binding Haushaltsunterkategorie}" MaxHeight="80" FontSize="20" TextTrimming="WordEllipsis" HorizontalAlignment="Left" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox Name="cbo_Jahr" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Background="Blue" FontSize="20" VerticalAlignment="Center">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" HorizontalAlignment="Stretch">
+                        <TextBlock Text="{Binding Jahr}" MaxHeight="80" FontSize="20" TextTrimming="WordEllipsis" HorizontalAlignment="Left" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ListView Name="ListviewConsumption" ItemsSource="{Binding}" Background="CornflowerBlue" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel x:Name="HeaderStackPanel" Background="Blue" Orientation="Vertical" VerticalAlignment="Center" Background="#FF5084E0" Width="300" HorizontalAlignment="Left" Margin="10,5,0,5">
+                        <TextBlock Text="{Binding Monat}" TextWrapping="Wrap" FontSize="14.667"  FontWeight="Bold" TextTrimming="WordEllipsis" HorizontalAlignment="Stretch" Margin="5,0,0,0" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Verbrauch: " HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="0"/>
+                            <TextBlock Text="{Binding Wert}" HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="0"/>
+                            <TextBlock Text="{Binding Einheit}" HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="5,0,0,0"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="Kosten: " HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="0"/>
+                            <TextBlock Text="{Binding Kosten}" HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="0"/>
+                            <TextBlock Text=" €" HorizontalAlignment="Left" VerticalAlignment="Top"  TextTrimming="WordEllipsis" FontSize="14.667" Height="20" Margin="5,0,0,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

@@ -93,6 +93,8 @@ Public NotInheritable Class MainHub
 
     Private Sub auflistenAuswertung(sender As Object, e As RoutedEventArgs)
 
+        Frame.Navigate(GetType(ListAnalysis))
+
     End Sub
 
     Private Sub aenderneinheiten(sender As Object, e As RoutedEventArgs)

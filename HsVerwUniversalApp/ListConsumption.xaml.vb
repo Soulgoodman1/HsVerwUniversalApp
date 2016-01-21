@@ -28,7 +28,7 @@ Public NotInheritable Class ListConsumption
         'Prüfen, ob Suchparameter übergeben wurden
 
         If vlo_parameter Is Nothing Then
-            ListviewConsumption.ItemsSource = _hhVerbresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > "31.12." & DateTime.Now.Year - 2) And (vlo_verbrauch.Datum < "01.02." & DateTime.Now.Year)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
+            ListviewConsumption.ItemsSource = _hhVerbresult.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > "31.12." & (DateTime.Now.Year - 2).ToString) And (vlo_verbrauch.Datum < "01.02." & DateTime.Now.Year)).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Haushaltsunterkategorie).ThenBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
         Else
             Dim vlo_searchparam As SearchParam = e.Parameter
 

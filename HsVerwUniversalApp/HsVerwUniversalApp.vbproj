@@ -164,6 +164,9 @@
     <Compile Include="EditIncome.xaml.vb">
       <DependentUpon>EditIncome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ListAnalysis.xaml.vb">
+      <DependentUpon>ListAnalysis.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Search.xaml.vb">
       <DependentUpon>Search.xaml</DependentUpon>
     </Compile>
@@ -231,6 +234,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="EditIncome.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ListAnalysis.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
