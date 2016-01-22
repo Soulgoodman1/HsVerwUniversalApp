@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import schemaLocation="http://wcfservices.ralfabels.de/HsVerwWCFService/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HsVerwWCFService" />
+  <xs:import schemaLocation="http://wcfservices.ralfabels.de/HsVerwWCFService/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
   <xs:element name="GetVerbrauch">
     <xs:complexType>
       <xs:sequence />
@@ -358,6 +359,18 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/HsVerwWCFService" minOccurs="0" name="GetEinnahmebyIDResult" nillable="true" type="q27:Einnahme" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnalyseJahre">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAnalyseJahreResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetAnalyseJahreResult" nillable="true" type="q28:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

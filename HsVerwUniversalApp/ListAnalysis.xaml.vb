@@ -8,7 +8,7 @@
 
 Public NotInheritable Class ListAnalysis
     Inherits Page
-
+    Private _resultverbrauch As ObservableCollection(Of HsVerwSvc.Verbrauch)
     Private _userdatacontextanalysisexplicit As UserDataContextAnalysisExplicit
 
     Public Sub New()
@@ -22,22 +22,44 @@ Public NotInheritable Class ListAnalysis
     Protected Overrides Async Sub OnNavigatedTo(e As NavigationEventArgs)
 
         Dim vlo_client As New HsVerwSvc.Service1Client
-        Dim vlo_ausgabeid As Long = CLng(e.Parameter)
+        'Dim vlo_ausgabeid As Long = CLng(e.Parameter)
 
-        Dim _hhverbrauchresult As ObservableCollection(Of HsVerwSvc.Verbrauch) = Await vlo_client.GetVerbrauchAsync
-        ListviewConsumption.ItemsSource = _hhverbrauchresult
+        _resultverbrauch = Await vlo_client.GetVerbrauchAsync
 
-        'Dim _hhrhtresult As ObservableCollection(Of HsVerwSvc.Zahlungsrythmus) = Await vlo_client.GetZahlungsrythmenAsync
+        ListviewConsumption.ItemsSource = _resultverbrauch
 
-        'cbo_zahlungsrythmus.ItemsSource = _hhrhtresult
-        'cbo_zahlungsrythmus.SelectedValuePath = "ID"
-        'cbo_zahlungsrythmus.SelectedIndex = 0
-        'cbo_zahlungsrythmus.SelectedValue = _hhausgresult.ZahlungsrythmusID
+        Dim _hhukatresult As ObservableCollection(Of HsVerwSvc.IService1Verbrauchstyp) = Await vlo_client.GetVerbrauchsTypAsync(1)
+
+        cbo_verbrauchsart.ItemsSource = _hhukatresult
+        cbo_verbrauchsart.SelectedValuePath = "ID"
+        'cbo_verbrauchsart.SelectedIndex = 0
+
+        Dim _hhjahreresult As ObservableCollection(Of String) = Await vlo_client.GetAnalyseJahreAsync
+
+        _hhjahreresult.Add("Alle")
+        cbo_Jahr.ItemsSource = _hhjahreresult
+        'cbo_Jahr.SelectedIndex = 0
 
         vlo_client = Nothing
 
     End Sub
 
+    Private Sub cbo_Jahr_SelectionChanged(sender As Object, e As SelectionChangedEventArgs)
+
+        Dim vlo_jahr As String = e.AddedItems(0).ToString
+
+        ListviewConsumption.ItemsSource = _resultverbrauch.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > CDate("01.01." & vlo_jahr)) And (vlo_verbrauch.Datum < CDate("01.02." & (CInt(vlo_jahr) + 1).ToString))).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
+
+    End Sub
+
+    Private Sub cbo_verbrauchsart_SelectionChanged(sender As Object, e As SelectionChangedEventArgs)
+
+        Dim vlo_haushaltsunterkategorie As HsVerwSvc.IService1Verbrauchstyp = e.AddedItems(0)
+
+        ListviewConsumption.ItemsSource = _resultverbrauch.Where(Function(vlo_verbrauch) (vlo_verbrauch.HaushaltsunterkategorieID = vlo_haushaltsunterkategorie.ID))
+
+
+    End Sub
 End Class
 
 Public Class UserDataContextAnalysisExplicit

@@ -150,6 +150,9 @@
     <None Include="Service References\HsVerwSvc\Service12.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Service References\HsVerwSvc\Service13.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EditConsumption.xaml.vb">

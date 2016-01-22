@@ -15,15 +15,6 @@ Public NotInheritable Class AddConsumption
 
         ' Fügen Sie Initialisierungen nach dem InitializeComponent()-Aufruf hinzu.
 
-        Dim vlo_client As New HsVerwSvc.Service1Client
-        Dim _hhkatresult As Task(Of ObservableCollection(Of HsVerwSvc.IService1Verbrauchstyp)) = vlo_client.GetVerbrauchsTypAsync(1)
-
-        cbo_verbrauchstyp.ItemsSource = _hhkatresult.Result
-        cbo_verbrauchstyp.SelectedValuePath = "ID"
-        cbo_verbrauchstyp.SelectedIndex = 0
-
-        vlo_client = Nothing
-
     End Sub
 
     Private Sub speichernVerbrauch(sender As Object, e As RoutedEventArgs)
@@ -49,6 +40,20 @@ Public NotInheritable Class AddConsumption
 
         vlo_verbrauchstyp = Nothing
         vlo_verbrauch = Nothing
+        vlo_client = Nothing
+
+    End Sub
+
+    Protected Overrides Async Sub OnNavigatedTo(e As NavigationEventArgs)
+
+        Dim vlo_client As New HsVerwSvc.Service1Client
+
+        Dim _hhkatresult As ObservableCollection(Of HsVerwSvc.IService1Verbrauchstyp) = Await vlo_client.GetVerbrauchsTypAsync(1)
+
+        cbo_verbrauchstyp.ItemsSource = _hhkatresult
+        cbo_verbrauchstyp.SelectedValuePath = "ID"
+        cbo_verbrauchstyp.SelectedIndex = 0
+
         vlo_client = Nothing
 
     End Sub

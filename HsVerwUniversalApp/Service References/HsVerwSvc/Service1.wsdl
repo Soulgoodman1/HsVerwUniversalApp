@@ -5,6 +5,7 @@
       <xsd:import schemaLocation="http://wcfservices.ralfabels.de/HsVerwWCFService/Service1.svc?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://wcfservices.ralfabels.de/HsVerwWCFService/Service1.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://wcfservices.ralfabels.de/HsVerwWCFService/Service1.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/HsVerwWCFService" />
+      <xsd:import schemaLocation="http://wcfservices.ralfabels.de/HsVerwWCFService/Service1.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IService1_GetVerbrauch_InputMessage">
@@ -169,6 +170,12 @@
   <wsdl:message name="IService1_GetEinnahmebyID_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetEinnahmebyIDResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_GetAnalyseJahre_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnalyseJahre" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetAnalyseJahre_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAnalyseJahreResponse" />
+  </wsdl:message>
   <wsdl:portType name="IService1">
     <wsdl:operation name="GetVerbrauch">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetVerbrauch" message="tns:IService1_GetVerbrauch_InputMessage" />
@@ -277,6 +284,10 @@
     <wsdl:operation name="GetEinnahmebyID">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetEinnahmebyID" message="tns:IService1_GetEinnahmebyID_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetEinnahmebyIDResponse" message="tns:IService1_GetEinnahmebyID_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyseJahre">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetAnalyseJahre" message="tns:IService1_GetAnalyseJahre_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetAnalyseJahreResponse" message="tns:IService1_GetAnalyseJahre_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IService1" type="tns:IService1">
@@ -517,6 +528,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetEinnahmebyID">
       <soap:operation soapAction="http://tempuri.org/IService1/GetEinnahmebyID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAnalyseJahre">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetAnalyseJahre" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

@@ -24,11 +24,26 @@ Namespace HsVerwSvc
     Partial Public Class Verbrauch
         Inherits HsVerwSvc.IService1Basis
         
+        Private AnzahlField As Double
+        
         Private KostenField As Decimal
         
         Private MonatField As String
         
         Private VerbrauchstypField As String
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property Anzahl() As Double
+            Get
+                Return Me.AnzahlField
+            End Get
+            Set
+                If (Me.AnzahlField.Equals(value) <> true) Then
+                    Me.AnzahlField = value
+                    Me.RaisePropertyChanged("Anzahl")
+                End If
+            End Set
+        End Property
         
         <System.Runtime.Serialization.DataMemberAttribute()>  _
         Public Property Kosten() As Decimal
@@ -967,6 +982,9 @@ Namespace HsVerwSvc
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/GetEinnahmebyID", ReplyAction:="http://tempuri.org/IService1/GetEinnahmebyIDResponse")>  _
         Function GetEinnahmebyIDAsync(ByVal ID As Long) As System.Threading.Tasks.Task(Of HsVerwSvc.Einnahme)
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/GetAnalyseJahre", ReplyAction:="http://tempuri.org/IService1/GetAnalyseJahreResponse")>  _
+        Function GetAnalyseJahreAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of String))
     End Interface
     
     <System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")>  _
@@ -1122,6 +1140,10 @@ Namespace HsVerwSvc
         
         Public Function GetEinnahmebyIDAsync(ByVal ID As Long) As System.Threading.Tasks.Task(Of HsVerwSvc.Einnahme) Implements HsVerwSvc.IService1.GetEinnahmebyIDAsync
             Return MyBase.Channel.GetEinnahmebyIDAsync(ID)
+        End Function
+        
+        Public Function GetAnalyseJahreAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of String)) Implements HsVerwSvc.IService1.GetAnalyseJahreAsync
+            Return MyBase.Channel.GetAnalyseJahreAsync
         End Function
         
         Public Overridable Function OpenAsync() As System.Threading.Tasks.Task
