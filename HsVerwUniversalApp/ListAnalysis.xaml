@@ -60,7 +60,8 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <ListView Name="ListviewConsumption" ItemsSource="{Binding}" Background="CornflowerBlue" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3">
+        <ProgressRing Name="splashProgressRing" IsActive="True" Width="100" Height="100" HorizontalAlignment="Center" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" Visibility="Visible"/>
+        <ListView Name="ListviewConsumption" ItemsSource="{Binding}" Background="CornflowerBlue" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3" Visibility="Collapsed">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" VerticalAlignment="Center" Background="#FF5084E0" Width="300" HorizontalAlignment="Left" Margin="10,5,0,5">

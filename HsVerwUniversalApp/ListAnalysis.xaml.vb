@@ -78,6 +78,11 @@ Public NotInheritable Class ListAnalysis
 
         vlo_client = Nothing
 
+        splashProgressRing.IsActive = False
+        splashProgressRing.Visibility = Visibility.Collapsed
+
+        ListviewConsumption.Visibility = Visibility.Visible
+
     End Sub
 
     Private Sub cbo_Jahr_SelectionChanged(sender As Object, e As SelectionChangedEventArgs)
@@ -156,6 +161,11 @@ Public NotInheritable Class ListAnalysis
 
     End Function
 
+    Private Sub ListAnalysis_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
+
+
+
+    End Sub
 End Class
 
 Public Class UserDataContextAnalysisExplicit
