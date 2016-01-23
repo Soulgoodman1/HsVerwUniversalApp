@@ -10,12 +10,18 @@ Public NotInheritable Class ListAnalysis
     Inherits Page
     Private _resultverbrauch As ObservableCollection(Of HsVerwSvc.Verbrauch)
     Private _userdatacontextanalysisexplicit As UserDataContextAnalysisExplicit
+    Private _jahr As String = "Alle"
+    Private _monat As String = "Alle"
+    Private _ukat As Long = 0
+    Private _filtern As System.Func(Of HsVerwSvc.Verbrauch, Boolean) = AddressOf Verbrauchfiltern
+    Private _initialisierung As Boolean = True
 
     Public Sub New()
         ' Dieser Aufruf ist für den Designer erforderlich.
         InitializeComponent()
 
         ' Fügen Sie Initialisierungen nach dem InitializeComponent()-Aufruf hinzu.
+
 
     End Sub
 
@@ -30,15 +36,45 @@ Public NotInheritable Class ListAnalysis
 
         Dim _hhukatresult As ObservableCollection(Of HsVerwSvc.IService1Verbrauchstyp) = Await vlo_client.GetVerbrauchsTypAsync(1)
 
-        cbo_verbrauchsart.ItemsSource = _hhukatresult
+        Dim _alle As New HsVerwSvc.IService1Verbrauchstyp
+        _alle.ID = 0
+        _alle.Haushaltsunterkategorie = "Alle"
+        _hhukatresult.Add(_alle)
+        '"Alle" nach oben schieben
+        _hhukatresult.Move(_hhukatresult.Count - 1, 0)
+
+        cbo_Verbrauchsart.ItemsSource = _hhukatresult
         cbo_verbrauchsart.SelectedValuePath = "ID"
-        'cbo_verbrauchsart.SelectedIndex = 0
+        cbo_Verbrauchsart.SelectedIndex = 0
 
         Dim _hhjahreresult As ObservableCollection(Of String) = Await vlo_client.GetAnalyseJahreAsync
 
         _hhjahreresult.Add("Alle")
+        '"Alle" nach oben schieben
+        _hhjahreresult.Move(_hhjahreresult.Count - 1, 0)
         cbo_Jahr.ItemsSource = _hhjahreresult
-        'cbo_Jahr.SelectedIndex = 0
+        cbo_Jahr.SelectedIndex = 0
+
+        Dim _hhmonateresult As New ObservableCollection(Of String)
+        _hhmonateresult.Add("Alle")
+        _hhmonateresult.Add("Januar")
+        _hhmonateresult.Add("Februar")
+        _hhmonateresult.Add("März")
+        _hhmonateresult.Add("April")
+        _hhmonateresult.Add("Mai")
+        _hhmonateresult.Add("Juni")
+        _hhmonateresult.Add("Juli")
+        _hhmonateresult.Add("August")
+        _hhmonateresult.Add("September")
+        _hhmonateresult.Add("Oktober")
+        _hhmonateresult.Add("November")
+        _hhmonateresult.Add("Dezember")
+
+        cbo_Monat.ItemsSource = _hhmonateresult
+        cbo_Monat.SelectedIndex = 0
+
+        'Erstinitialisierung abgeschlossen
+        _initialisierung = False
 
         vlo_client = Nothing
 
@@ -46,20 +82,80 @@ Public NotInheritable Class ListAnalysis
 
     Private Sub cbo_Jahr_SelectionChanged(sender As Object, e As SelectionChangedEventArgs)
 
-        Dim vlo_jahr As String = e.AddedItems(0).ToString
+        'Nur nach Erstinitialisierung filtern
+        If _initialisierung Then Exit Sub
 
-        ListviewConsumption.ItemsSource = _resultverbrauch.Where(Function(vlo_verbrauch) (vlo_verbrauch.Datum > CDate("01.01." & vlo_jahr)) And (vlo_verbrauch.Datum < CDate("01.02." & (CInt(vlo_jahr) + 1).ToString))).OrderBy(Function(vlo_verbrauch) vlo_verbrauch.Datum)
+        _jahr = e.AddedItems(0).ToString
+
+        ListviewConsumption.ItemsSource = _resultverbrauch.Where(_filtern)
+    End Sub
+
+    Private Sub cbo_Monat_SelectionChanged(sender As Object, e As SelectionChangedEventArgs)
+
+        'Nur nach Erstinitialisierung filtern
+        If _initialisierung Then Exit Sub
+
+        _monat = e.AddedItems(0).ToString
+
+        ListviewConsumption.ItemsSource = _resultverbrauch.Where(_filtern)
 
     End Sub
 
     Private Sub cbo_verbrauchsart_SelectionChanged(sender As Object, e As SelectionChangedEventArgs)
 
-        Dim vlo_haushaltsunterkategorie As HsVerwSvc.IService1Verbrauchstyp = e.AddedItems(0)
+        'Nur nach Erstinitialisierung filtern
+        If _initialisierung Then Exit Sub
 
-        ListviewConsumption.ItemsSource = _resultverbrauch.Where(Function(vlo_verbrauch) (vlo_verbrauch.HaushaltsunterkategorieID = vlo_haushaltsunterkategorie.ID))
+        _ukat = CType(e.AddedItems(0), HsVerwSvc.IService1Verbrauchstyp).ID
 
+        ListviewConsumption.ItemsSource = _resultverbrauch.Where(_filtern)
 
     End Sub
+
+    Private Function Verbrauchfiltern(ByVal vlo_verbrauch As HsVerwSvc.Verbrauch) As Boolean
+        Dim vlo_filter As Boolean = False
+        Dim vlo_filter_jahr As Boolean = False
+        Dim vlo_filter_monat As Boolean = False
+        Dim vlo_filter_ukat As Boolean = False
+
+        If _jahr <> "Alle" Then
+            If vlo_verbrauch.Datum > CDate("01.01." & _jahr) And vlo_verbrauch.Datum < CDate("01.02." & (CInt(_jahr) + 1).ToString) Then
+                vlo_filter_jahr = True
+            Else
+                vlo_filter_jahr = False
+            End If
+        Else
+            vlo_filter_jahr = True
+        End If
+
+        If _monat <> "Alle" Then
+            If vlo_verbrauch.Monat = _monat Then
+                vlo_filter_monat = True
+            Else
+                vlo_filter_monat = False
+            End If
+        Else
+            vlo_filter_monat = True
+        End If
+
+        If _ukat <> 0 Then
+            If vlo_verbrauch.HaushaltsunterkategorieID = _ukat Then
+                vlo_filter_ukat = True
+            Else
+                vlo_filter_ukat = False
+            End If
+        Else
+            vlo_filter_ukat = True
+        End If
+
+        If vlo_filter_jahr And vlo_filter_monat And vlo_filter_ukat Then
+            vlo_filter = True
+        End If
+
+        Return vlo_filter
+
+    End Function
+
 End Class
 
 Public Class UserDataContextAnalysisExplicit

@@ -22,16 +22,17 @@
             <ColumnDefinition Width="20*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
-            <RowDefinition Height="70*"/>
+            <RowDefinition Height="64*"/>
         </Grid.RowDefinitions>
         <Grid.Resources>
             <local:DateConverter x:Key="dateConverter"/>
         </Grid.Resources>
-        <TextBlock Text="Auswertung" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" FontSize="40"/>
-        <ComboBox Name="cbo_verbrauchsart" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Background="Blue" FontSize="20" VerticalAlignment="Center" SelectionChanged="cbo_verbrauchsart_SelectionChanged">
+        <TextBlock Text="Auswertung" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" FontSize="30"/>
+        <ComboBox Header="Verbrauchsart" Name="cbo_Verbrauchsart" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Background="Blue" FontSize="20" VerticalAlignment="Center" SelectionChanged="cbo_verbrauchsart_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" HorizontalAlignment="Stretch">
@@ -40,7 +41,7 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <ComboBox Name="cbo_Jahr" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Background="Blue" FontSize="20" VerticalAlignment="Center" SelectionChanged="cbo_Jahr_SelectionChanged">
+        <ComboBox Header="Monat" Name="cbo_Monat" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Background="Blue" FontSize="20" VerticalAlignment="Center" SelectionChanged="cbo_Monat_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" HorizontalAlignment="Stretch">
@@ -49,7 +50,16 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <ListView Name="ListviewConsumption" ItemsSource="{Binding}" Background="CornflowerBlue" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3">
+        <ComboBox Header="Jahr" Name="cbo_Jahr" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" Background="Blue" FontSize="20" VerticalAlignment="Center" SelectionChanged="cbo_Jahr_SelectionChanged">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" HorizontalAlignment="Stretch">
+                        <TextBlock Text="{Binding}" MaxHeight="80" FontSize="20" TextTrimming="WordEllipsis" HorizontalAlignment="Left" />
+                    </StackPanel>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ListView Name="ListviewConsumption" ItemsSource="{Binding}" Background="CornflowerBlue" Grid.Column="1" Grid.Row="4" Grid.ColumnSpan="3">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" VerticalAlignment="Center" Background="#FF5084E0" Width="300" HorizontalAlignment="Left" Margin="10,5,0,5">
