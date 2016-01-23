@@ -22,35 +22,36 @@
             <ColumnDefinition Width="20*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="6*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
             <RowDefinition Height="10*"/>
-            <RowDefinition Height="64*"/>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="60*"/>
         </Grid.RowDefinitions>
         <Grid.Resources>
             <local:DateConverter x:Key="dateConverter"/>
         </Grid.Resources>
         <TextBlock Text="Auswertung" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="3" FontSize="30"/>
-        <ComboBox Header="Verbrauchsart" Name="cbo_Verbrauchsart" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3" Background="Blue" FontSize="20" VerticalAlignment="Center" SelectionChanged="cbo_verbrauchsart_SelectionChanged">
+        <TextBlock Text="Typ" FontSize="20" Grid.Column="1" Grid.Row="1"/>
+        <ComboBox Name="cbo_Verbrauchsart" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2" Background="Blue" FontSize="20" VerticalAlignment="Center" SelectionChanged="cbo_verbrauchsart_SelectionChanged">
+                <ComboBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Haushaltsunterkategorie}" MaxHeight="80" FontSize="20" TextTrimming="WordEllipsis"/>
+                    </DataTemplate>
+                </ComboBox.ItemTemplate>
+            </ComboBox>
+        <TextBlock Text="Monat" FontSize="20" Grid.Column="1" Grid.Row="2"/>
+        <ComboBox Name="cbo_Monat" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2" Background="Blue" FontSize="20" VerticalAlignment="Center" SelectionChanged="cbo_Monat_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                    <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" HorizontalAlignment="Stretch">
-                        <TextBlock Text="{Binding Haushaltsunterkategorie}" MaxHeight="80" FontSize="20" TextTrimming="WordEllipsis" HorizontalAlignment="Left" />
-                    </StackPanel>
-                </DataTemplate>
-            </ComboBox.ItemTemplate>
-        </ComboBox>
-        <ComboBox Header="Monat" Name="cbo_Monat" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" Background="Blue" FontSize="20" VerticalAlignment="Center" SelectionChanged="cbo_Monat_SelectionChanged">
-            <ComboBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" HorizontalAlignment="Stretch">
+                    <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical">
                         <TextBlock Text="{Binding}" MaxHeight="80" FontSize="20" TextTrimming="WordEllipsis" HorizontalAlignment="Left" />
                     </StackPanel>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <ComboBox Header="Jahr" Name="cbo_Jahr" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="1" Grid.Row="3" Grid.ColumnSpan="3" Background="Blue" FontSize="20" VerticalAlignment="Center" SelectionChanged="cbo_Jahr_SelectionChanged">
+        <TextBlock Text="Jahr" FontSize="20" Grid.Column="1" Grid.Row="3"/>
+        <ComboBox Name="cbo_Jahr" ItemsSource="{Binding}" HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Background="Blue" FontSize="20" VerticalAlignment="Center" SelectionChanged="cbo_Jahr_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel x:Name="HeaderStackPanel" Orientation="Vertical" HorizontalAlignment="Stretch">
