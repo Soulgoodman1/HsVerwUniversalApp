@@ -155,6 +155,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Crypto.vb" />
     <Compile Include="EditConsumption.xaml.vb">
       <DependentUpon>EditConsumption.xaml</DependentUpon>
     </Compile>
