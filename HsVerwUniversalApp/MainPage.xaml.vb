@@ -60,7 +60,7 @@ Public NotInheritable Class MainPage
             If _serveravailable Then
                 'Server available
                 ' Zur neuen Seite navigieren
-                Frame.Navigate(GetType(MainHub))
+                ShowLogin()
             Else
                 'Server Down
                 ckb_server.IsChecked = False
@@ -100,4 +100,35 @@ Public NotInheritable Class MainPage
         Return True
     End Function
 
+    Private Sub ShowLogin()
+        'Status-Elemente unsichtbar machen
+        splashProgressRing.Visibility = Visibility.Collapsed
+        splashProgressRing.IsActive = False
+        ckb_internet.Visibility = Visibility.Collapsed
+        ckb_server.Visibility = Visibility.Collapsed
+
+        'Login-Elemente sichtbar machen
+        username.Visibility = Visibility.Visible
+        pwdbox.Visibility = Visibility.Visible
+        btn_login.Visibility = Visibility.Visible
+        btn_login.IsEnabled = True
+        btn_register.Visibility = Visibility.Visible
+        btn_register.IsEnabled = True
+    End Sub
+
+    Private Sub btn_login_Click(sender As Object, e As RoutedEventArgs) Handles btn_login.Click
+
+        Frame.Navigate(GetType(MainHub))
+
+    End Sub
+
+    Private Sub pwdbox_Tapped(sender As Object, e As TappedRoutedEventArgs) Handles pwdbox.Tapped
+        pwdbox.PasswordRevealMode = PasswordRevealMode.Hidden
+        pwdbox.Password = ""
+    End Sub
+
+    Private Sub pwdbox_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles pwdbox.PointerEntered
+        pwdbox.PasswordRevealMode = PasswordRevealMode.Hidden
+        pwdbox.Password = ""
+    End Sub
 End Class
