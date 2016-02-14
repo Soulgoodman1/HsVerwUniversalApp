@@ -26,7 +26,7 @@
                 </Grid.RowDefinitions>
                 <CheckBox Name="ckb_internet" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" IsEnabled="False" Content="Internet" IsChecked="{x:Null}" FontSize="20" HorizontalAlignment="Center" />
                 <CheckBox Name="ckb_server"  Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="2" IsEnabled="False" Content="Server" IsChecked="{x:Null}" FontSize="20" HorizontalAlignment="Center" />
-                <TextBox Name="username" Text="Nutzername eingeben" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Visibility="Collapsed"/>
+                <TextBox Name="username" Text="eMail Adresse eingeben" Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Visibility="Collapsed"/>
                 <PasswordBox Name="pwdbox"  PasswordRevealMode="Visible" Password="Kennwort eingeben" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" Visibility="Collapsed"/>
                 <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Center">
                     <Button Name="btn_login" Visibility="Collapsed" IsEnabled="False" Margin="5">Einloggen</Button>

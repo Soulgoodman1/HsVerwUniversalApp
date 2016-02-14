@@ -1,6 +1,7 @@
 ﻿Imports System.Net.NetworkInformation
 Imports Windows.Networking.Sockets
 Imports Windows.UI
+
 ' Die Vorlage "Leere Seite" ist unter http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 dokumentiert.
 
 ''' <summary>
@@ -130,5 +131,15 @@ Public NotInheritable Class MainPage
     Private Sub pwdbox_PointerEntered(sender As Object, e As PointerRoutedEventArgs) Handles pwdbox.PointerEntered
         pwdbox.PasswordRevealMode = PasswordRevealMode.Hidden
         pwdbox.Password = ""
+    End Sub
+
+    Private Sub btn_register_Click(sender As Object, e As RoutedEventArgs) Handles btn_register.Click
+        'Prüfung Kennwort Komplexität
+        'Prüfung, ob Username eMail Adresse entspricht xxxx@xx.xx
+
+
+        'nach CreateHash Salt, Hash, Username, isactive = false wegschreiben über Backend
+        'incl. Benachrichtigung 
+
     End Sub
 End Class
