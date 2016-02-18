@@ -6,10 +6,13 @@ Imports System.Text
 
 Public Class Crypto
 
-    Public Function CreateHash(ByVal password As String) As String
+    Public Function CreateHash(ByVal password As String) As HsVerwSvc.User
+        Dim vlo_user As New HsVerwSvc.User
 
         'Append Salt
-        password = password & GenerateRandomData()
+        vlo_user.salt = GenerateRandomData()
+
+        password = password & vlo_user.salt
 
         'Hash Password und Salt
         Dim objMd5Hasher As CryptographicHash = HashAlgorithmProvider.OpenAlgorithm(HashAlgorithmNames.Md5).CreateHash()
@@ -26,12 +29,14 @@ Public Class Crypto
 
         CryptographicBuffer.CopyToByteArray(buffHash, data)
 
-        For i As Integer = 0 To i < data.Length Step 1
+        For i As Integer = 0 To (data.Length - 1) Step 1
             sb.Append(data(i).ToString("x2"))
         Next i
 
+        vlo_user.hash = sb.ToString()
+
         'Return salted Hash
-        Return sb.ToString()
+        Return vlo_user
 
     End Function
 

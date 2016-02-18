@@ -122,6 +122,12 @@
   <wsdl:message name="IService1_SetAusgabeNew_OutputMessage">
     <wsdl:part name="parameters" element="tns:SetAusgabeNewResponse" />
   </wsdl:message>
+  <wsdl:message name="IService1_SetUserNew_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserNew" />
+  </wsdl:message>
+  <wsdl:message name="IService1_SetUserNew_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetUserNewResponse" />
+  </wsdl:message>
   <wsdl:message name="IService1_SetEinnahmeNew_InputMessage">
     <wsdl:part name="parameters" element="tns:SetEinnahmeNew" />
   </wsdl:message>
@@ -145,6 +151,12 @@
   </wsdl:message>
   <wsdl:message name="IService1_DeleteEinnahme_OutputMessage">
     <wsdl:part name="parameters" element="tns:DeleteEinnahmeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IService1_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
   </wsdl:message>
   <wsdl:message name="IService1_GetHaushaltskategorien_InputMessage">
     <wsdl:part name="parameters" element="tns:GetHaushaltskategorien" />
@@ -253,6 +265,10 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetAusgabeNew" message="tns:IService1_SetAusgabeNew_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetAusgabeNewResponse" message="tns:IService1_SetAusgabeNew_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="SetUserNew">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetUserNew" message="tns:IService1_SetUserNew_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetUserNewResponse" message="tns:IService1_SetUserNew_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="SetEinnahmeNew">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/SetEinnahmeNew" message="tns:IService1_SetEinnahmeNew_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/SetEinnahmeNewResponse" message="tns:IService1_SetEinnahmeNew_OutputMessage" />
@@ -268,6 +284,10 @@
     <wsdl:operation name="DeleteEinnahme">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/DeleteEinnahme" message="tns:IService1_DeleteEinnahme_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IService1/DeleteEinnahmeResponse" message="tns:IService1_DeleteEinnahme_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetUser" message="tns:IService1_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService1/GetUserResponse" message="tns:IService1_GetUser_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetHaushaltskategorien">
       <wsdl:input wsaw:Action="http://tempuri.org/IService1/GetHaushaltskategorien" message="tns:IService1_GetHaushaltskategorien_InputMessage" />
@@ -463,6 +483,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SetUserNew">
+      <soap:operation soapAction="http://tempuri.org/IService1/SetUserNew" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SetEinnahmeNew">
       <soap:operation soapAction="http://tempuri.org/IService1/SetEinnahmeNew" style="document" />
       <wsdl:input>
@@ -492,6 +521,15 @@
     </wsdl:operation>
     <wsdl:operation name="DeleteEinnahme">
       <soap:operation soapAction="http://tempuri.org/IService1/DeleteEinnahme" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IService1/GetUser" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

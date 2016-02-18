@@ -125,6 +125,16 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="VarVerbrauchKat" nillable="true" type="tns:VarVerbrauchKat" />
+  <xs:complexType name="User">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="IDUser" type="xs:long" />
+      <xs:element minOccurs="0" name="hash" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="isactive" type="xs:boolean" />
+      <xs:element minOccurs="0" name="salt" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="username" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
   <xs:complexType name="ArrayOfHaushaltskategorie">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Haushaltskategorie" nillable="true" type="tns:Haushaltskategorie" />

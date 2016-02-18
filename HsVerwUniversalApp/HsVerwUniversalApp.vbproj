@@ -122,6 +122,9 @@
     <None Include="Service References\HsVerwSvc\HsVerwUniversalApp.HsVerwSvc.IService1Verbrauchstyp.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\HsVerwSvc\HsVerwUniversalApp.HsVerwSvc.User.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\HsVerwSvc\HsVerwUniversalApp.HsVerwSvc.VarVerbrauchKat.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

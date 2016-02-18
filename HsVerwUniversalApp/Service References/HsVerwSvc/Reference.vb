@@ -594,6 +594,98 @@ Namespace HsVerwSvc
     
     <System.Diagnostics.DebuggerStepThroughAttribute(),  _
      System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0"),  _
+     System.Runtime.Serialization.DataContractAttribute(Name:="User", [Namespace]:="http://schemas.datacontract.org/2004/07/HsVerwWCFService")>  _
+    Partial Public Class User
+        Inherits Object
+        Implements System.ComponentModel.INotifyPropertyChanged
+        
+        Private IDUserField As Long
+        
+        Private hashField As String
+        
+        Private isactiveField As Boolean
+        
+        Private saltField As String
+        
+        Private usernameField As String
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property IDUser() As Long
+            Get
+                Return Me.IDUserField
+            End Get
+            Set
+                If (Me.IDUserField.Equals(value) <> true) Then
+                    Me.IDUserField = value
+                    Me.RaisePropertyChanged("IDUser")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property hash() As String
+            Get
+                Return Me.hashField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.hashField, value) <> true) Then
+                    Me.hashField = value
+                    Me.RaisePropertyChanged("hash")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property isactive() As Boolean
+            Get
+                Return Me.isactiveField
+            End Get
+            Set
+                If (Me.isactiveField.Equals(value) <> true) Then
+                    Me.isactiveField = value
+                    Me.RaisePropertyChanged("isactive")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property salt() As String
+            Get
+                Return Me.saltField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.saltField, value) <> true) Then
+                    Me.saltField = value
+                    Me.RaisePropertyChanged("salt")
+                End If
+            End Set
+        End Property
+        
+        <System.Runtime.Serialization.DataMemberAttribute()>  _
+        Public Property username() As String
+            Get
+                Return Me.usernameField
+            End Get
+            Set
+                If (Object.ReferenceEquals(Me.usernameField, value) <> true) Then
+                    Me.usernameField = value
+                    Me.RaisePropertyChanged("username")
+                End If
+            End Set
+        End Property
+        
+        Public Event PropertyChanged As System.ComponentModel.PropertyChangedEventHandler Implements System.ComponentModel.INotifyPropertyChanged.PropertyChanged
+        
+        Protected Sub RaisePropertyChanged(ByVal propertyName As String)
+            Dim propertyChanged As System.ComponentModel.PropertyChangedEventHandler = Me.PropertyChangedEvent
+            If (Not (propertyChanged) Is Nothing) Then
+                propertyChanged(Me, New System.ComponentModel.PropertyChangedEventArgs(propertyName))
+            End If
+        End Sub
+    End Class
+    
+    <System.Diagnostics.DebuggerStepThroughAttribute(),  _
+     System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0"),  _
      System.Runtime.Serialization.DataContractAttribute(Name:="Haushaltskategorie", [Namespace]:="http://schemas.datacontract.org/2004/07/HsVerwWCFService")>  _
     Partial Public Class Haushaltskategorie
         Inherits Object
@@ -959,6 +1051,9 @@ Namespace HsVerwSvc
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/SetAusgabeNew", ReplyAction:="http://tempuri.org/IService1/SetAusgabeNewResponse")>  _
         Function SetAusgabeNewAsync(ByVal vlo_ausgabe As HsVerwSvc.Ausgabe) As System.Threading.Tasks.Task(Of String)
         
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/SetUserNew", ReplyAction:="http://tempuri.org/IService1/SetUserNewResponse")>  _
+        Function SetUserNewAsync(ByVal vlo_user As HsVerwSvc.User) As System.Threading.Tasks.Task(Of Boolean)
+        
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/SetEinnahmeNew", ReplyAction:="http://tempuri.org/IService1/SetEinnahmeNewResponse")>  _
         Function SetEinnahmeNewAsync(ByVal vlo_ausgabe As HsVerwSvc.Einnahme) As System.Threading.Tasks.Task(Of String)
         
@@ -970,6 +1065,9 @@ Namespace HsVerwSvc
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/DeleteEinnahme", ReplyAction:="http://tempuri.org/IService1/DeleteEinnahmeResponse")>  _
         Function DeleteEinnahmeAsync(ByVal vlo_ausgabe As HsVerwSvc.Einnahme) As System.Threading.Tasks.Task(Of Boolean)
+        
+        <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/GetUser", ReplyAction:="http://tempuri.org/IService1/GetUserResponse")>  _
+        Function GetUserAsync(ByVal vlo_username As String) As System.Threading.Tasks.Task(Of HsVerwSvc.User)
         
         <System.ServiceModel.OperationContractAttribute(Action:="http://tempuri.org/IService1/GetHaushaltskategorien", ReplyAction:="http://tempuri.org/IService1/GetHaushaltskategorienResponse")>  _
         Function GetHaushaltskategorienAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Haushaltskategorie))
@@ -1110,6 +1208,10 @@ Namespace HsVerwSvc
             Return MyBase.Channel.SetAusgabeNewAsync(vlo_ausgabe)
         End Function
         
+        Public Function SetUserNewAsync(ByVal vlo_user As HsVerwSvc.User) As System.Threading.Tasks.Task(Of Boolean) Implements HsVerwSvc.IService1.SetUserNewAsync
+            Return MyBase.Channel.SetUserNewAsync(vlo_user)
+        End Function
+        
         Public Function SetEinnahmeNewAsync(ByVal vlo_ausgabe As HsVerwSvc.Einnahme) As System.Threading.Tasks.Task(Of String) Implements HsVerwSvc.IService1.SetEinnahmeNewAsync
             Return MyBase.Channel.SetEinnahmeNewAsync(vlo_ausgabe)
         End Function
@@ -1124,6 +1226,10 @@ Namespace HsVerwSvc
         
         Public Function DeleteEinnahmeAsync(ByVal vlo_ausgabe As HsVerwSvc.Einnahme) As System.Threading.Tasks.Task(Of Boolean) Implements HsVerwSvc.IService1.DeleteEinnahmeAsync
             Return MyBase.Channel.DeleteEinnahmeAsync(vlo_ausgabe)
+        End Function
+        
+        Public Function GetUserAsync(ByVal vlo_username As String) As System.Threading.Tasks.Task(Of HsVerwSvc.User) Implements HsVerwSvc.IService1.GetUserAsync
+            Return MyBase.Channel.GetUserAsync(vlo_username)
         End Function
         
         Public Function GetHaushaltskategorienAsync() As System.Threading.Tasks.Task(Of System.Collections.ObjectModel.ObservableCollection(Of HsVerwSvc.Haushaltskategorie)) Implements HsVerwSvc.IService1.GetHaushaltskategorienAsync

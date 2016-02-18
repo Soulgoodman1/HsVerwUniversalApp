@@ -134,12 +134,27 @@ Public NotInheritable Class MainPage
     End Sub
 
     Private Sub btn_register_Click(sender As Object, e As RoutedEventArgs) Handles btn_register.Click
+        Dim vlo_crypto As New Crypto
+        Dim vlo_user As New HsVerwSvc.User
+        Dim vlo_client As New HsVerwSvc.Service1Client
         'Prüfung Kennwort Komplexität
         'Prüfung, ob Username eMail Adresse entspricht xxxx@xx.xx
 
+        'Create Hash
+        vlo_user = vlo_crypto.CreateHash(pwdbox.Password)
+        vlo_user.isactive = False
+        vlo_user.username = username.Text
 
         'nach CreateHash Salt, Hash, Username, isactive = false wegschreiben über Backend
         'incl. Benachrichtigung 
+
+        Dim _hhsetresult As Task(Of Boolean) = vlo_client.SetUserNewAsync(vlo_user)
+
+        If Not _hhsetresult.Result Then
+            Frame.GoBack()
+        End If
+
+        vlo_client = Nothing
 
     End Sub
 End Class
